@@ -1,0 +1,92 @@
+<!-- <div class=" container-fluid">
+<div class="row mt-4">
+<div class=" col-md-4 ">
+    <section id="sidepanel">
+        
+        <p><button class="but" mat-raised-button color="primary">Vehicle List</button></p>
+        <p><button class="but" mat-raised-button color="primary">Add Vehicle </button></p>
+        <p><button class="but" mat-raised-button color="primary">User List</button></p>
+        <p><button class="but" mat-raised-button color="primary">Add User</button></p>
+        <div>
+            <p>
+            <label for="" class=" mx-auto">Rent Vehicles</label>
+            </p>
+            <mat-form-field>
+                <mat-label>Select Vehicle</mat-label>
+
+                <select matNativeControl required>
+                  <option value="volvo">Volvo</option>
+                  <option value="saab">Saab</option>
+                  <option value="mercedes">Mercedes</option>
+                  <option value="audi">Audi</option>
+                </select>
+               
+              </mat-form-field>
+              <button class=" ml-3" mat-stroked-button color="primary">Continue</button>
+
+        </div>
+        <div>
+            <p>
+            <label for="" class=" mx-auto">Return Vehicles</label>
+            </p>
+            <mat-form-field>
+                <mat-label>Select Username</mat-label>
+
+                <select matNativeControl required>
+                  <option value="abhi@gmail">abhi@gmail</option>
+                  <option value="avi@gmail">avi@gmail</option>
+                  <option value="arpit@gmail">arpit@gmail</option>
+                  <option value="junaid@gmail">junaid@gmail</option>
+                </select>
+               
+              </mat-form-field>
+              <button class=" ml-3" mat-stroked-button color="primary">Continue</button>
+
+        </div>
+        <p><button class="but" mat-raised-button color="primary">Vehciles Rented</button></p>
+        <p><button class="but" mat-raised-button color="primary">Add User</button></p>
+        <p><button class="but" mat-raised-button color="primary">Payment Details</button></p>
+
+    </section>
+
+</div>
+<div class=" col-md-8 cardText">
+    <div class=" row p-5">
+        <div class=" col-md-6">
+            <mat-card class=" p-5">No of vehicles available</mat-card>
+        </div>
+        <div class=" col-md-6">
+            <mat-card class=" p-5">No of Registered Users</mat-card>
+        </div>
+    </div>
+    <div class=" row p-5">
+        <div class=" col-md-6">
+            <mat-card class=" p-5">No of rented vehicles</mat-card>
+        </div>
+        <div class=" col-md-6">
+            <mat-card class=" p-5">Total payment received</mat-card>
+        </div>
+
+    </div>
+</div>
+</div>
+</div> -->
+<div class="sidebar">
+    <a mat-list-item routerLinkActive="active"  [routerLink]="'admin-home'"> Home </a>
+    
+    <a mat-list-item routerLinkActive="active" [routerLink]="'vehicle-list'"> Vehicle List </a>
+    <a mat-list-item routerLinkActive="active" [routerLink]="'add-vehicle'"> Add Vehicle </a>
+    <a mat-list-item routerLinkActive="active" [routerLink]="'user-list'"> User List </a>
+    <a mat-list-item routerLinkActive="active" [routerLink]="'add-user'"> Add User </a>
+    <a mat-list-item routerLinkActive="active" [routerLink]="'rent-vehicle'"> Rent Vehicle </a>
+    <a mat-list-item routerLinkActive="active" [routerLink]="'return-vehicle'"> Return Vehicle </a>
+
+    <a mat-list-item routerLinkActive="active" [routerLink]="'vehicles-rented'">Vehciles Rented </a>
+    <a mat-list-item routerLinkActive="active" [routerLink]="'payment-details'"> Payment Details </a>
+      <!-- <a mat-list-item (click)="sidenav.toggle(" href="" mat-list-item>Close</a> -->
+  </div>
+
+
+
+<!-- <router-outlet></router-outlet> -->
+

@@ -1,0 +1,59 @@
+<div class=" offset-sm-4">
+
+<form action="" class=" form-container ">
+    <mat-form-field>
+        <mat-label>Email</mat-label>
+        <select matNativeControl required>
+          <option value="abhijeet@gmail.com">abhijeet@gmail.com</option>
+          <option value="avi@gmail.com">avi@gmail.com</option>
+          <option value="junaid@gmail.com">junaid@gmail.com</option>
+        </select>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Vehicle Name</mat-label>
+        <select matNativeControl required>
+          <option value="i10">i10</option>
+          <option value="Alto">Alto</option>
+          <option value="Splendor">Splendor</option>
+        </select>
+    </mat-form-field>
+    <mat-form-field class="form-width">
+        <input matInput placeholder="Vehicle Number" type="text" required>
+    </mat-form-field>
+    <mat-form-field class="form-width">
+        <input matInput placeholder="Security Deposit Amount" type="email" required>
+    </mat-form-field>
+    <mat-form-field class="form-width">
+        <input matInput placeholder="Fine per day" type="number" required>
+    </mat-form-field>
+    <!-- <mat-form-field class="form-width">
+        <input matInput placeholder="Phone" type="tel" required>
+    </mat-form-field> -->
+    <!-- <mat-form-field class="form-width">
+        <input matInput placeholder="Alt. phone" type="tel" required>
+    </mat-form-field> -->
+  
+    <mat-form-field>
+        <mat-label>Issue date</mat-label>
+        <input matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Return date</mat-label>
+        <input matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field class="form-width">
+        <input matInput placeholder="DL license no" type="text" required>
+    </mat-form-field>
+    <!-- <mat-form-field> -->
+    <!-- </mat-form-field> -->
+    <div>
+        <button mat-raised-button type="submit" color="primary">Sign up</button>
+        <button class="right" mat-raised-button type="reset" color="default">Book</button>
+    </div>
+</form>
+</div>
