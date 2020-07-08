@@ -14,14 +14,14 @@ export interface UserData {
 
 
 
-const COLORS: string[] = [
-  'maroon', 'red', 'orange', 'yellow', 'olive', 'green', 'purple', 'fuchsia', 'lime', 'teal',
-  'aqua', 'blue', 'navy', 'black', 'gray'
-];
-const NAMES: string[] = [
-  'Maia', 'Asher', 'Olivia', 'Atticus', 'Amelia', 'Jack', 'Charlotte', 'Theodore', 'Isla', 'Oliver',
-  'Isabella', 'Jasper', 'Cora', 'Levi', 'Violet', 'Arthur', 'Mia', 'Thomas', 'Elizabeth'
-];
+// const COLORS: string[] = [
+//   'maroon', 'red', 'orange', 'yellow', 'olive', 'green', 'purple', 'fuchsia', 'lime', 'teal',
+//   'aqua', 'blue', 'navy', 'black', 'gray'
+// ];
+// const NAMES: string[] = [
+//   'Maia', 'Asher', 'Olivia', 'Atticus', 'Amelia', 'Jack', 'Charlotte', 'Theodore', 'Isla', 'Oliver',
+//   'Isabella', 'Jasper', 'Cora', 'Levi', 'Violet', 'Arthur', 'Mia', 'Thomas', 'Elizabeth'
+// ];
 
 
 @Component({
@@ -31,32 +31,35 @@ const NAMES: string[] = [
 })
 export class UserListComponent implements OnInit {
   customerList:Customer[];
-  dataSource=[];
+  // dataSource=[];
+  dataSource: MatTableDataSource<Customer>;
   getCustomerList(){
     this.customerService.getUsers().subscribe(res=>{
       this.customerList=res;
       console.log(this.customerList)
-      this.dataSource= this.customerList;
+      // this.dataSource= this.customerList;
+      this.dataSource = new MatTableDataSource<Customer>(this.customerList)
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
     })
   }
 
-  displayedColumns: string[] = ['id', 'name', 'progress', 'color'];
-  dataSource: MatTableDataSource<UserData>;
+  displayedColumns: string[] = [ 'fname','lname','email', 'gender', 'phone','dlNo','createdAt','isActive'];
+  
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
   constructor(private customerService: CustomerService) { 
-    const users = Array.from({length: 100}, (_, k) => createNewUser(k + 1));
+    // const users = Array.from({length: 100}, (_, k) => createNewUser(k + 1));
 
     // Assign the data to the data source for the table to render
-    this.dataSource = new MatTableDataSource(users);
+    // this.dataSource = new MatTableDataSource(users);
   }
 
   ngOnInit(): void {
     this.getCustomerList();
 
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    
 
   }
   applyFilter(event: Event) {
@@ -68,14 +71,14 @@ export class UserListComponent implements OnInit {
     }
   }
 }
-function createNewUser(id: number): UserData {
-  const name = NAMES[Math.round(Math.random() * (NAMES.length - 1))] + ' ' +
-      NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) + '.';
+// function createNewUser(id: number): UserData {
+//   const name = NAMES[Math.round(Math.random() * (NAMES.length - 1))] + ' ' +
+//       NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) + '.';
 
-  return {
-    id: id.toString(),
-    name: name,
-    progress: Math.round(Math.random() * 100).toString(),
-    color: COLORS[Math.round(Math.random() * (COLORS.length - 1))]
-  };
-}
+//   return {
+//     id: id.toString(),
+//     name: name,
+//     progress: Math.round(Math.random() * 100).toString(),
+//     color: COLORS[Math.round(Math.random() * (COLORS.length - 1))]
+//   };
+// }
