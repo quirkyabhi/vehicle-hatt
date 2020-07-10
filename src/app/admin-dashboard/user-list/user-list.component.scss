@@ -11,14 +11,12 @@
   //   // width: 25%;
   // }
   .example-container {
-    height: 400px;
-    width: 550px;
+    height: auto;
+    width: auto;
     overflow: auto;
   }
   
-  table {
-    width: 800px;
-  }
+
   
   td.mat-column-star {
     width: 20px;
@@ -36,3 +34,21 @@
   .mat-table-sticky:last-child {
     border-left: 1px solid #e0e0e0;
   }
+  .mat-table {
+    overflow-x: scroll;
+  }
+
+.mat-cell,
+.mat-header-cell {
+  word-wrap: initial;
+  display: table-cell;
+  padding: 10px 50px;
+  line-break: unset;
+  white-space: nowrap;
+  overflow: hidden;
+  vertical-align: middle;
+}
+.mat-row,
+.mat-header-row {
+  display: table-row;
+}
