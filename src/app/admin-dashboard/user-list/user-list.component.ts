@@ -44,7 +44,7 @@ export class UserListComponent implements OnInit {
     })
   }
 
-  displayedColumns: string[] = [ 'fname','lname','email', 'gender', 'phone','dlNo','createdAt','isActive'];
+  displayedColumns: string[] = [ 'fname','lname','email', 'gender', 'phone','dlNo','createdAt','isActive','dob','age','state','city','pin','address'];
   
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
