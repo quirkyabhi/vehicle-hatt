@@ -44,7 +44,7 @@ export class UserListComponent implements OnInit {
     })
   }
 
-  displayedColumns: string[] = [ 'fname','lname','email', 'gender', 'phone','dlNo','createdAt','isActive','dob','age','state','city','pin','address'];
+  displayedColumns: string[] = [ '_id','fname','lname','email', 'gender', 'phone','dlNo','createdAt','isActive','dob','age','state','city','pin','address'];
   
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
@@ -61,6 +61,9 @@ export class UserListComponent implements OnInit {
 
     
 
+  }
+  editUser(id){
+    alert(id);
   }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
