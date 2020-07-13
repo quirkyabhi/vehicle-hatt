@@ -1,16 +1,14 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild, Injectable} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import { CustomerService } from 'src/app/login/customer.service';
 import { Customer } from 'src/app/login/customer';
+import { SharedUserService } from './sharedUserData.service';
+import { Router } from '@angular/router';
 
-export interface UserData {
-  id: string;
-  name: string;
-  progress: string;
-  color: string;
-}
+
+
 
 
 
@@ -35,7 +33,10 @@ export class UserListComponent implements OnInit {
   dataSource: MatTableDataSource<Customer>;
   getCustomerList(){
     this.customerService.getUsers().subscribe(res=>{
-      this.customerList=res;
+      // this.customerList=res;
+      this.customerList=res.filter(item => item.role !== "admin");
+
+    
       console.log(this.customerList)
       // this.dataSource= this.customerList;
       this.dataSource = new MatTableDataSource<Customer>(this.customerList)
@@ -44,12 +45,12 @@ export class UserListComponent implements OnInit {
     })
   }
 
-  displayedColumns: string[] = [ '_id','fname','lname','email', 'gender', 'phone','dlNo','createdAt','isActive','dob','age','state','city','pin','address'];
+  displayedColumns: string[] = [ '_id','fname','lname','email', 'gender', 'phone','dlNo','dob','age','address','state','city','pin','isActive','createdAt'];
   
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
-  constructor(private customerService: CustomerService) { 
+  constructor(private router: Router,private customerService: CustomerService, private sharedUserService :SharedUserService) { 
     // const users = Array.from({length: 100}, (_, k) => createNewUser(k + 1));
 
     // Assign the data to the data source for the table to render
@@ -62,8 +63,12 @@ export class UserListComponent implements OnInit {
     
 
   }
-  editUser(id){
-    alert(id);
+  editUser(data){
+    // alert(data);
+    this.sharedUserService.updateMessage(data);
+    console.log(data)
+    this.router.navigate(['admin-dashboard/update-user'])
+
   }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CustomerService } from './customer.service';
-import { MustMatch } from "./_helpers/must-match.validator";
+// import { MustMatch } from "./_helpers/must-match.validator";
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Customer } from './customer';
+// import { Customer } from './customer';
 
 @Component({
   selector: 'app-login',
@@ -56,8 +56,15 @@ export class LoginComponent implements OnInit {
     // this.signupForm.value.isActive = true;
     this.customerService.createUser(this.signupForm.value).subscribe(data=>{
       alert("sigup successful")
+      this._snackBar.open('Signup', 'Success', {
+        duration: 4000,
+      }
+        )
       console.log(data)
-    }, err=> console.log(err))
+    },  err=> this._snackBar.open('Signup', 'Failed', {
+      duration: 4000,
+    }
+      ))
   }
   login(){
     this.customerService.loginUser(this.loginForm.value).subscribe(data=>{
@@ -75,7 +82,11 @@ export class LoginComponent implements OnInit {
       console.log(data)
       // alert("login successful")
       
-    }, err=> console.log(err))
+    }, err=> this._snackBar.open('Signup', 'Failed', {
+      duration: 4000,
+    }
+      )
+    )
   }
 }
 

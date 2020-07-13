@@ -1,6 +1,6 @@
 <div class=" container-sm">
     <div class=" col-md-8 offset-4 mt-5">
-<form class=" form-container "  (ngSubmit)="addUser()" novalidate [formGroup]="createAddUserForm">
+<form class=" form-container "  (ngSubmit)="updateUser()" novalidate [formGroup]="updateUserForm">
     <mat-form-field class="form-width">
         <input matInput placeholder="First name" type="text"  formControlName="fname">
     </mat-form-field>
@@ -11,10 +11,6 @@
     <br>
     <mat-form-field class="form-width">
         <input matInput placeholder="Email" type="email"  formControlName="email">
-    </mat-form-field>
-    <br>
-    <mat-form-field class="form-width">
-        <input matInput placeholder="Password" type="password"  formControlName="password">
     </mat-form-field>
     <br>
     <mat-form-field class="form-width">

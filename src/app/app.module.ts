@@ -44,6 +44,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { UpdateUserComponent } from './admin-dashboard/update-user/update-user.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     CustomerVehiclesAvailableComponent,
     CustomerHomeComponent,
     CustomerDashComponent,
+    UpdateUserComponent,
     
   ],
   imports: [
