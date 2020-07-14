@@ -19,6 +19,7 @@ import { CustomerPaymentHistoryComponent } from './customer-dashboard/customer-p
 import { CustomerVehiclesAvailableComponent } from './customer-dashboard/customer-vehicles-available/customer-vehicles-available.component';
 import { AddVehicleComponent } from './admin-dashboard/add-vehicle/add-vehicle.component';
 import { UpdateUserComponent } from './admin-dashboard/update-user/update-user.component';
+import { UpdateVehicleComponent } from './admin-dashboard/update-vehicle/update-vehicle.component';
 
 
 
@@ -76,6 +77,10 @@ import { UpdateUserComponent } from './admin-dashboard/update-user/update-user.c
         {
           path:  'update-user',
           component: UpdateUserComponent
+        },
+        {
+          path:  'update-vehicle',
+          component: UpdateVehicleComponent
         },
     ]
     },

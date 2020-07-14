@@ -2,22 +2,10 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
+import { Router } from '@angular/router';
+import { IssuedVehicleService } from 'src/app/services/issued-vehicle.service';
+import { IssuedVehicle } from 'src/app/services/issuedVehicle';
 
-export interface UserData {
-  id: string;
-  name: string;
-  progress: string;
-  color: string;
-}
-
-const COLORS: string[] = [
-  'maroon', 'red', 'orange', 'yellow', 'olive', 'green', 'purple', 'fuchsia', 'lime', 'teal',
-  'aqua', 'blue', 'navy', 'black', 'gray'
-];
-const NAMES: string[] = [
-  'Maia', 'Asher', 'Olivia', 'Atticus', 'Amelia', 'Jack', 'Charlotte', 'Theodore', 'Isla', 'Oliver',
-  'Isabella', 'Jasper', 'Cora', 'Levi', 'Violet', 'Arthur', 'Mia', 'Thomas', 'Elizabeth'
-];
 
 @Component({
   selector: 'app-vehicles-rented',
@@ -25,22 +13,36 @@ const NAMES: string[] = [
   styleUrls: ['./vehicles-rented.component.scss']
 })
 export class VehiclesRentedComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'name', 'progress', 'color'];
-  dataSource: MatTableDataSource<UserData>;
+  issuedVehicleList:IssuedVehicle[];
+  dataSource: MatTableDataSource<IssuedVehicle>;
+  getPaymentList(){
+    this.issuedVehicleService.getIssuedVehicles().subscribe(res=>{
+      this.issuedVehicleList=res;
+      // this.customerList=res.filter(item => item.role !== "admin" );
+      // this.customerList=this.customerList.filter(item => item.isActive !=="false");
+      
+    
+      console.log(this.issuedVehicleList)
+      // this.dataSource= this.customerList;
+      this.dataSource = new MatTableDataSource<IssuedVehicle>(this.issuedVehicleList)
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    })
+  }
+
+  displayedColumns: string[] = [ '_id','vehicleId','userId','issueDate', 'returnDate', 'totalRent','isActive','createdAt'];
+  
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
-  constructor() { 
-    const users = Array.from({length: 100}, (_, k) => createNewUser(k + 1));
-
-    // Assign the data to the data source for the table to render
-    this.dataSource = new MatTableDataSource(users);
+  constructor(private router: Router,private issuedVehicleService: IssuedVehicleService) { 
+   
   }
 
   ngOnInit(): void {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    this.getPaymentList();
   }
+
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -49,15 +51,4 @@ export class VehiclesRentedComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
-}
-function createNewUser(id: number): UserData {
-  const name = NAMES[Math.round(Math.random() * (NAMES.length - 1))] + ' ' +
-      NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) + '.';
-
-  return {
-    id: id.toString(),
-    name: name,
-    progress: Math.round(Math.random() * 100).toString(),
-    color: COLORS[Math.round(Math.random() * (COLORS.length - 1))]
-  };
 }

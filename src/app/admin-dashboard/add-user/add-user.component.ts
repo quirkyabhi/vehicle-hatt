@@ -13,24 +13,9 @@ export class AddUserComponent implements OnInit {
   constructor(private customerService: CustomerService ,private fb:FormBuilder,private _snackBar: MatSnackBar, private router: Router) { }
 
   ngOnInit(): void {
-    this.createAddUserForm()
+    this.createAddUserForm();
   }
   createAddUserForm(){
-    // this.updateUserForm= this.fb.group({
-    //   fname : ['',Validators.required],
-    //   lname : ['',Validators.required],
-    //   email : ['',Validators.required],
-    //   phone : ['',Validators.required],
-    //   gender : ['',Validators.required],
-    //   dlNo : ['',Validators.required],
-    //   isActive : ['',Validators.required],
-    //   dob : ['',Validators.required],
-    //   age : ['',Validators.required],
-    //   address : ['',Validators.required],
-    //   state : ['',Validators.required],
-    //   city : ['',Validators.required],
-    //   pin : ['',Validators.required],
-    //   altPhone : ['',Validators.required],
     this.addUserForm= this.fb.group({
       fname : ['',Validators.required],
       lname : ['',Validators.required],
@@ -38,20 +23,24 @@ export class AddUserComponent implements OnInit {
       phone : ['',Validators.required],
       gender : ['',Validators.required],
       dlNo : ['',Validators.required],
-      password:[],
-      isActive : [],
-      dob : [],
-      age : [],
-      address : [],
-      state : [],
-      city : [],
-      pin : [],
-      altPhone : [],
+      // password:['',Validators.required]
+    
     })
     
   }
   addUser(){
-    
+    this.addUserForm.value.password="00000"
+    this.customerService.createUser(this.addUserForm.value).subscribe(data=>{
+      // alert("Add successful")
+      this._snackBar.open('Add User', 'Success', {
+        duration: 4000,
+      }
+        )
+      console.log(data)
+    },  err=> this._snackBar.open('Add User', 'Failed', {
+      duration: 4000,
+    }
+      ))
   }
 
 }

@@ -1,5 +1,5 @@
 export class Customer {
-    _id:number;
+    _id:string;
     fname:string;
     lname:string;
     email:string;
@@ -7,7 +7,7 @@ export class Customer {
     gender:string;
     phone:number;
     dlNo:string;
-    isActive:boolean;
+    isActive:string;
     dob:Date;
     age:number;
     address:string;

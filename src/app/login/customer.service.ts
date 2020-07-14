@@ -19,7 +19,7 @@ export class CustomerService {
     return this.http.post<Customer>('http://localhost:3000/api/users/login',model)
   }
   getUser(id):Observable<Customer>{
-    return this.http.get<Customer>('http://localhost:3000/api/users'+id)
+    return this.http.get<Customer>('http://localhost:3000/api/users/'+id)
   }
   updateUser(id,model):Observable<Customer>{
     return this.http.put<Customer>('http://localhost:3000/api/users/'+id,model)

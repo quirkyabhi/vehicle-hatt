@@ -7,21 +7,6 @@ import { Customer } from 'src/app/login/customer';
 import { SharedUserService } from './sharedUserData.service';
 import { Router } from '@angular/router';
 
-
-
-
-
-
-// const COLORS: string[] = [
-//   'maroon', 'red', 'orange', 'yellow', 'olive', 'green', 'purple', 'fuchsia', 'lime', 'teal',
-//   'aqua', 'blue', 'navy', 'black', 'gray'
-// ];
-// const NAMES: string[] = [
-//   'Maia', 'Asher', 'Olivia', 'Atticus', 'Amelia', 'Jack', 'Charlotte', 'Theodore', 'Isla', 'Oliver',
-//   'Isabella', 'Jasper', 'Cora', 'Levi', 'Violet', 'Arthur', 'Mia', 'Thomas', 'Elizabeth'
-// ];
-
-
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
@@ -34,8 +19,9 @@ export class UserListComponent implements OnInit {
   getCustomerList(){
     this.customerService.getUsers().subscribe(res=>{
       // this.customerList=res;
-      this.customerList=res.filter(item => item.role !== "admin");
-
+      this.customerList=res.filter(item => item.role !== "admin" );
+      // this.customerList=this.customerList.filter(item => item.isActive !=="false");
+      
     
       console.log(this.customerList)
       // this.dataSource= this.customerList;
@@ -79,14 +65,3 @@ export class UserListComponent implements OnInit {
     }
   }
 }
-// function createNewUser(id: number): UserData {
-//   const name = NAMES[Math.round(Math.random() * (NAMES.length - 1))] + ' ' +
-//       NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) + '.';
-
-//   return {
-//     id: id.toString(),
-//     name: name,
-//     progress: Math.round(Math.random() * 100).toString(),
-//     color: COLORS[Math.round(Math.random() * (COLORS.length - 1))]
-//   };
-// }

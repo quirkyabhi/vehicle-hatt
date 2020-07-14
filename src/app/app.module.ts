@@ -45,6 +45,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { UpdateUserComponent } from './admin-dashboard/update-user/update-user.component';
+import { UpdateVehicleComponent } from './admin-dashboard/update-vehicle/update-vehicle.component';
 
 @NgModule({
   declarations: [
@@ -71,6 +72,7 @@ import { UpdateUserComponent } from './admin-dashboard/update-user/update-user.c
     CustomerHomeComponent,
     CustomerDashComponent,
     UpdateUserComponent,
+    UpdateVehicleComponent,
     
   ],
   imports: [
