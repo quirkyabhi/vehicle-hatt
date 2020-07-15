@@ -8,9 +8,10 @@
 
     <!-- ID Column -->
     <ng-container matColumnDef="_id">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
       <td mat-cell *matCellDef="let row"> <button (click)="editVehicle(row)" class=" btn btn-dark">Edit</button></td>
     </ng-container>
+  
 
     <!-- Progress Column -->
     <ng-container matColumnDef="vehicleName">

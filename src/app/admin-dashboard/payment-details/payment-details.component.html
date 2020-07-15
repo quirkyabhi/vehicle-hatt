@@ -3,31 +3,41 @@
     <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
   </mat-form-field>
   
-  <div class="mat-elevation-z8">
+  <div class="example-container mat-elevation-z8">
     <table mat-table [dataSource]="dataSource" matSort>
   
       <!-- ID Column -->
-      <ng-container matColumnDef="id">
+      <ng-container matColumnDef="_id">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
-        <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+        <td mat-cell *matCellDef="let row"> {{row._id}} </td>
       </ng-container>
   
       <!-- Progress Column -->
-      <ng-container matColumnDef="progress">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Progress </th>
-        <td mat-cell *matCellDef="let row"> {{row.progress}}% </td>
+      <ng-container matColumnDef="issueId">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Rent ID </th>
+        <td mat-cell *matCellDef="let row"> {{row.issueId}}% </td>
       </ng-container>
   
       <!-- Name Column -->
-      <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
-        <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+      <ng-container matColumnDef="fine">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Fine  </th>
+        <td mat-cell *matCellDef="let row"> {{row.fine}} </td>
       </ng-container>
   
       <!-- Color Column -->
-      <ng-container matColumnDef="color">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Color </th>
-        <td mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.color}} </td>
+      <ng-container matColumnDef="totalRent">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Total Rent </th>
+        <td mat-cell *matCellDef="let row" > {{row.totalRent}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+        <td mat-cell *matCellDef="let row" > {{row.status}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="createdDate">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Payment Date </th>
+        <td mat-cell *matCellDef="let row" > {{row.createdDate | date: 'shortDate'}} </td>
       </ng-container>
   
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

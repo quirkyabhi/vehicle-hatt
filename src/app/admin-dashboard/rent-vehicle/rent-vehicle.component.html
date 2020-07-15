@@ -1,58 +1,43 @@
-<!-- <div class=" offset-sm-4">
-
-<form action="" class=" form-container ">
-    <mat-form-field>
-        <mat-label>Email</mat-label>
-        <select matNativeControl required>
-          <option value="abhijeet@gmail.com">abhijeet@gmail.com</option>
-          <option value="avi@gmail.com">avi@gmail.com</option>
-          <option value="junaid@gmail.com">junaid@gmail.com</option>
-        </select>
-    </mat-form-field>
-    <br>
-    <mat-form-field>
-        <mat-label>Vehicle Name</mat-label>
-        <select matNativeControl required>
-          <option value="i10">i10</option>
-          <option value="Alto">Alto</option>
-          <option value="Splendor">Splendor</option>
-        </select>
-    </mat-form-field>
-    <mat-form-field class="form-width">
-        <input matInput placeholder="Vehicle Number" type="text" required>
-    </mat-form-field>
-    <mat-form-field class="form-width">
-        <input matInput placeholder="Security Deposit Amount" type="email" required>
-    </mat-form-field>
-    <mat-form-field class="form-width">
-        <input matInput placeholder="Fine per day" type="number" required>
-    </mat-form-field>
-     <mat-form-field class="form-width">
-        <input matInput placeholder="Phone" type="tel" required>
-    </mat-form-field> -->
-    <!-- <mat-form-field class="form-width">
-        <input matInput placeholder="Alt. phone" type="tel" required>
-    </mat-form-field> -->
-  
-    <!-- <mat-form-field>
-        <mat-label>Issue date</mat-label>
-        <input matInput [matDatepicker]="picker">
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Return date</mat-label>
-        <input matInput [matDatepicker]="picker">
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
-    <mat-form-field class="form-width">
-        <input matInput placeholder="DL license no" type="text" required>
-    </mat-form-field>
+<div class=" container-sm">
+    <div class=" col-md-4 offset-4 mt-5"> 
     
-    <div>
-        <button mat-raised-button type="submit" color="primary">Sign up</button>
-        <button class="right" mat-raised-button type="reset" color="default">Book</button>
-    </div>
-</form>
-</div> --> 
+    <form class=" form-container "  (ngSubmit)="rentVehicle()" novalidate [formGroup]="rentVehicleForm">
+        <mat-form-field class="form-width">
+            <input matInput placeholder="Vehicle name" type="text" required formControlName="vehicleName">
+        </mat-form-field>
+        <mat-form-field class="form-width">
+            <input matInput placeholder="Vehicle no." type="text" required formControlName="vehicleNo">
+        </mat-form-field>
+        <mat-form-field class="form-width">
+            <input matInput placeholder="Registration No" type="text" required formControlName="registrationNo">
+        </mat-form-field>
+        <mat-form-field class="form-width">
+            <input matInput placeholder="insurance no." type="text" required formControlName="insuranceNo">
+        </mat-form-field>
+           <mat-form-field>
+            <mat-label>Vehicle Type</mat-label>
+            <mat-select matNativeControl required formControlName="vehicleType">
+              <mat-option value="Moto">Moto</mat-option>
+              <mat-option value="Hatchback">Hatchback</mat-option>
+              <mat-option value="Sedan">Sedan</mat-option>
+              <mat-option value="SUV">SUV</mat-option>
+              <mat-option value="Minibus">Minibus</mat-option>
+
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="form-width">
+            <input matInput placeholder="Rent per day" type="number" required formControlName="rentPerDay">
+        </mat-form-field> 
+        <mat-form-field class="form-width">
+            <input matInput placeholder="Security Amount" type="number" required formControlName="securityAmount">
+        </mat-form-field> 
+        <mat-form-field class="form-width">
+            <input matInput placeholder="Fine per day" type="number" required formControlName="fine">
+        </mat-form-field> 
+        <br>
+        <div>
+            <button mat-raised-button type="submit" color="primary">add </button>
+            <button class="right" mat-raised-button type="reset" color="default">Cancel</button>
+        </div>
+    </form>
+    </div></div>

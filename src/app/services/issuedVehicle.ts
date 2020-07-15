@@ -1,7 +1,10 @@
 export class IssuedVehicle{
+    _id:string;
     vehicleId:string;
     userId:string;
-    issueId:string;
+    userName: string;
+    userEmail:string;
+    userPhone:number;
     issueDate:string;
     returnDate:string;
     totalRent:number;
