@@ -47,6 +47,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { UpdateUserComponent } from './admin-dashboard/update-user/update-user.component';
 import { UpdateVehicleComponent } from './admin-dashboard/update-vehicle/update-vehicle.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

@@ -10,18 +10,18 @@ export class IssuedVehicleService {
   constructor(private http: HttpClient) { }
 
   getIssuedVehicles():Observable<IssuedVehicle[]>{
-    return this.http.get<IssuedVehicle[]>('http://localhost:3000/api/issuedVehicle')
+    return this.http.get<IssuedVehicle[]>('http://localhost:3000/api/issuedVehicles')
   }
   createIssuedVehicle(model):Observable<IssuedVehicle>{
-    return this.http.post<IssuedVehicle>('http://localhost:3000/api/issuedVehicle',model)
+    return this.http.post<IssuedVehicle>('http://localhost:3000/api/issuedVehicles',model)
   }
   // loginUser(model):Observable<IssuedVehicle>{
   //   return this.http.post<IssuedVehicle>('http://localhost:3000/api/issuedVehicle',model)
   // }
   getIssuedVehicle(id):Observable<IssuedVehicle>{
-    return this.http.get<IssuedVehicle>('http://localhost:3000/api/issuedVehicle/'+id)
+    return this.http.get<IssuedVehicle>('http://localhost:3000/api/issuedVehicles/'+id)
   }
   updateIssuedVehicle(id,model):Observable<IssuedVehicle>{
-    return this.http.put<IssuedVehicle>('http://localhost:3000/api/issuedVehicle/'+id,model)
+    return this.http.put<IssuedVehicle>('http://localhost:3000/api/issuedVehicles/'+id,model)
   }
 }

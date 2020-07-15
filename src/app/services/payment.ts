@@ -1,5 +1,5 @@
 export class Payment{
-    _id: string;
+    _id: string
     issueId:string;
     fine:number;
     totalRent:number;
