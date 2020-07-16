@@ -111,6 +111,7 @@ export class RentVehicleComponent implements OnInit {
       this.updateVehicle.isAvailable="Not Available";
       this.vehicleService.updateVehicle(this.rentVehicleFormContinued.value.vehicleId,this.updateVehicle).subscribe(data=>{
         console.log("updated")
+        this.router.navigate(['admin-dashboard/vehicles-rented'])
       })
     }, err => this._snackBar.open('Rent Vehicle', 'Failed', {
       duration: 4000,

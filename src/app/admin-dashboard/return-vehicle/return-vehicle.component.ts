@@ -48,7 +48,7 @@ export class ReturnVehicleComponent implements OnInit {
   getCustomerData(){
     this.issuedVehicleService.getIssuedVehicles().subscribe(data => {
       this.issuedList = data.filter(item => item.isActive !== "false" );
-      console.log(this.issuedList);
+      // console.log(this.issuedList);
       },
       err=> console.log(err))
   }
@@ -76,7 +76,7 @@ export class ReturnVehicleComponent implements OnInit {
     this.returnVehicleForm.patchValue(this.returnVehicleForm.value)
   }
   pay(){
-    console.log(this.returnVehicleForm.value)
+    // console.log(this.returnVehicleForm.value)
     this.paymentService.createPayment(this.returnVehicleForm.value).subscribe(data => {
       // this.vehicleList = data.filter(item => item.isAvailable == "Not Available" );
       // console.log(data);
@@ -91,7 +91,7 @@ export class ReturnVehicleComponent implements OnInit {
           this._snackBar.open('Payment', 'Success', {
             duration: 4000,
           });
-
+          this.router.navigate(['admin-dashboard/payment-details'])
           },
           err=> this._snackBar.open('Payment', 'Fail', {
             duration: 4000,
@@ -105,7 +105,7 @@ export class ReturnVehicleComponent implements OnInit {
       err=> this._snackBar.open('Payment', 'Fail', {
         duration: 4000,
       }))
-
+      
   }
 }
 
