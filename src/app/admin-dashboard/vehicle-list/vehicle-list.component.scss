@@ -47,15 +47,28 @@
   white-space: nowrap;
   overflow: hidden;
   vertical-align: middle;
+  text-align: center;
+  
 }
 .mat-row,
 .mat-header-row {
   display: table-row;
+
 }
 
+
+
 .isInActive{
-  background-color: rgb(248, 215, 215) !important;
+  background-color:rgba(128, 128, 128, 0.438) !important;
 }
 .isActive{
-  background-color: rgb(218, 223, 253);
+  background-color:rgba(122, 231, 226, 0.397);
+}
+
+.isAvailable{
+  background-color:rgba(122, 231, 226, 0.918)!important;
+}
+
+.isUnAvailable{
+  background-color: rgb(219, 134, 134);
 }

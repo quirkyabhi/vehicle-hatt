@@ -5,6 +5,7 @@ import {MatTableDataSource} from '@angular/material/table';
 import { Router } from '@angular/router';
 import { IssuedVehicleService } from 'src/app/services/issued-vehicle.service';
 import { IssuedVehicle } from 'src/app/services/issuedVehicle';
+import { SharedRentedVehicleService } from './sharedRentedVehicle.service';
 
 
 @Component({
@@ -30,17 +31,23 @@ export class VehiclesRentedComponent implements OnInit {
     })
   }
 
-  displayedColumns: string[] = [ '_id','vehicleId','userId','issueDate', 'returnDate', 'totalRent','isActive','createdAt'];
+  displayedColumns: string[] = [ '_id','vehicleName','userName','issueDate', 'returnDate', 'totalRent','isActive','createdAt'];
   
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
-  constructor(private router: Router,private issuedVehicleService: IssuedVehicleService) { 
+  constructor(private sharedRentedVehicleService:SharedRentedVehicleService, private router: Router,private issuedVehicleService: IssuedVehicleService) { 
    
   }
 
   ngOnInit(): void {
     this.getPaymentList();
+  }
+
+  return(data){
+    this.sharedRentedVehicleService.updateMessage(data);
+    console.log(data)
+    this.router.navigate(['admin-dashboard/return-vehicle'])
   }
 
   applyFilter(event: Event) {

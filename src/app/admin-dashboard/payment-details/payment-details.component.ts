@@ -40,6 +40,7 @@ export class PaymentDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getPaymentList();
+    // this.dataSource.sort = this.sort;
   }
 
   applyFilter(event: Event) {

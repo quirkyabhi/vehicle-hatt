@@ -46,7 +46,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { UpdateUserComponent } from './admin-dashboard/update-user/update-user.component';
 import { UpdateVehicleComponent } from './admin-dashboard/update-vehicle/update-vehicle.component';
-
+import {MatSortModule} from '@angular/material/sort'
 
 @NgModule({
   declarations: [
@@ -106,6 +106,7 @@ import { UpdateVehicleComponent } from './admin-dashboard/update-vehicle/update-
     FormsModule,
     MatExpansionModule,
     MatSnackBarModule,
+    MatSortModule,
     
     
     // FormControl,

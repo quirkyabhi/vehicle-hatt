@@ -30,7 +30,8 @@ export class RentVehicleComponent implements OnInit {
 
   getCustomerData(){
     this.customerService.getUsers().subscribe(data => {
-      this.customerList = data;
+      this.customerList = data.filter(item => item.isActive !== "false" );
+      this.customerList = data.filter(item => item.role !== "admin" );
       console.log(this.customerList);
       },
       err=> console.log(err))

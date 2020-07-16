@@ -96,7 +96,7 @@
 
     <ng-container matColumnDef="isAvailable">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Availability</th>
-      <td mat-cell *matCellDef="let row"> {{row.isAvailable}} </td>
+      <td mat-cell [ngClass]="{'isAvailable': row.isAvailable == 'Available'}" *matCellDef="let row"> {{row.isAvailable}} </td>
     </ng-container>
 
     <ng-container matColumnDef="description">
@@ -113,5 +113,5 @@
     </tr>
   </table>
 
-  <mat-paginator [pageSizeOptions]="[20, 50, 100]"></mat-paginator>
+  <mat-paginator [pageSizeOptions]="[10,25, 50, 100]" showFirstLastButtons></mat-paginator>
 </div>

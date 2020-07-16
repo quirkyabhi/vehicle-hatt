@@ -2,10 +2,7 @@
     <div class=" col-md-4 offset-4 mt-5"> 
     
     <form class=" form-container "  (ngSubmit)="continue()" novalidate [formGroup]="rentVehicleForm">
-        <!-- <mat-form-field class="form-width">
-            <input matInput placeholder="Vehicle name" type="text" required formControlName="vehicleName">
-        </mat-form-field>
-        <br> -->
+       
         <mat-form-field appearance="fill" >
             <mat-label>Vehicle name</mat-label>
             <mat-select formControlName="vehicleName">

@@ -1,0 +1,50 @@
+<div class=" container-sm" [hidden]="!display">
+    <div class=" col-md-4 offset-4 mt-5"> 
+    
+    <form class=" form-container "  (ngSubmit)="continue()" novalidate [formGroup]="customerEmailForm">
+       
+          <br>
+          <mat-form-field appearance="fill" >
+            <mat-label>Customer :: Vehicle Issued</mat-label>
+            <mat-select formControlName="userEmail">
+              <mat-option *ngFor="let userEmail of issuedList" [value]="userEmail">
+                {{userEmail.userEmail }} :: {{userEmail.vehicleName}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <br>
+               <div>
+            <button mat-raised-button type="submit" color="primary"> Continue </button>
+            <button class="right" mat-raised-button type="reset" color="default">Cancel</button>
+        </div>
+    </form>
+    </div></div>
+
+    <div class=" container-sm" [hidden]="!display">
+        <div class=" col-md-4 offset-4 mt-5"> 
+        
+        <form class=" form-container "  (ngSubmit)="pay()" novalidate [formGroup]="returnVehicleForm">
+           
+            <mat-form-field >
+                <mat-label>Return  Date</mat-label>
+                <input disabled matInput  [matDatepicker]="picker" formControlName="createdDate">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            
+            <mat-form-field  class="form-width">
+                <input  matInput placeholder="Fine" type="number"  formControlName="fine">
+            </mat-form-field>
+            
+            <mat-form-field class="form-width">
+                <input  matInput placeholder="Total Rent with Fine" type="number"  formControlName="totalRent">
+            </mat-form-field>
+
+
+            <div>
+                <button mat-raised-button type="submit" color="primary"> Pay </button>
+                <button class="right" mat-raised-button type="reset" color="default">Cancel</button>
+            </div>
+        </form>
+        </div></div>
+    

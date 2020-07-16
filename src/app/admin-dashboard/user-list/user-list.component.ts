@@ -26,8 +26,9 @@ export class UserListComponent implements OnInit {
       console.log(this.customerList)
       // this.dataSource= this.customerList;
       this.dataSource = new MatTableDataSource<Customer>(this.customerList)
-      this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
+      this.dataSource.paginator = this.paginator;
+      
     })
   }
 
