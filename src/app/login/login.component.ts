@@ -4,6 +4,7 @@ import { CustomerService } from './customer.service';
 // import { MustMatch } from "./_helpers/must-match.validator";
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { SharedLoggedInUserService } from './sharedLoggedInUser';
 // import { Customer } from './customer';
 
 @Component({
@@ -18,7 +19,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
 
 
-  constructor(private fb:FormBuilder, private customerService:CustomerService,private _snackBar: MatSnackBar, private router: Router) { }
+  constructor(private sharedLoggedInUserService:  SharedLoggedInUserService,private fb:FormBuilder, private customerService:CustomerService,private _snackBar: MatSnackBar, private router: Router) { }
 
   ngOnInit(): void {
     this.createLoginForm()
@@ -54,7 +55,7 @@ export class LoginComponent implements OnInit {
     // this.signupForm.value.createdAt = new Date();
     // this.signupForm.value.isActive = true;
     this.customerService.createUser(this.signupForm.value).subscribe(data=>{
-      alert("sigup successful")
+      // alert("signup successful")
       this._snackBar.open('Signup', 'Success', {
         duration: 4000,
       }
@@ -67,18 +68,18 @@ export class LoginComponent implements OnInit {
   }
   login(){
     this.customerService.loginUser(this.loginForm.value).subscribe(data=>{
-      console.log(data)
+      // console.log(data)
       this._snackBar.open('Login Successful', 'Success', {
         duration: 4000,
       });
-      // this.sharedService.updateMessage(data);
+      this.sharedLoggedInUserService.updateMessage(data);
       if (data.role=='admin') {
         this.router.navigate(['admin-dashboard'])
       } else {
         this.router.navigate(['customer-dashboard'])
       }
       
-      console.log(data)
+      // console.log(data)
       // alert("login successful")
       
     }, err=> this._snackBar.open('Signup', 'Failed', {

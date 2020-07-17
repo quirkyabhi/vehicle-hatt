@@ -22,9 +22,6 @@ export class UserListComponent implements OnInit {
       this.customerList=res.filter(item => item.role !== "admin" );
       // this.customerList=this.customerList.filter(item => item.isActive !=="false");
       
-    
-      console.log(this.customerList)
-      // this.dataSource= this.customerList;
       this.dataSource = new MatTableDataSource<Customer>(this.customerList)
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
@@ -38,10 +35,7 @@ export class UserListComponent implements OnInit {
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
   constructor(private router: Router,private customerService: CustomerService, private sharedUserService :SharedUserService) { 
-    // const users = Array.from({length: 100}, (_, k) => createNewUser(k + 1));
-
-    // Assign the data to the data source for the table to render
-    // this.dataSource = new MatTableDataSource(users);
+    
   }
 
   ngOnInit(): void {

@@ -40,7 +40,8 @@ export class ReturnVehicleComponent implements OnInit {
       fine:['', Validators.required],
       totalRent:['', Validators.required],
       createdDate:[],
-      issueId:[]
+      issueId:[],
+      userId:[]
     })
   }
  
@@ -74,6 +75,7 @@ export class ReturnVehicleComponent implements OnInit {
    
     this.returnVehicleForm.value.totalRent=this.returnVehicleForm.value.fine+this.customerEmailForm.value.userEmail.totalRent
     this.returnVehicleForm.patchValue(this.returnVehicleForm.value)
+    this.returnVehicleForm.value.userId=this.customerEmailForm.value.userEmail.userId
   }
   pay(){
     // console.log(this.returnVehicleForm.value)

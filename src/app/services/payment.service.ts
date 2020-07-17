@@ -24,5 +24,9 @@ export class PaymentService {
   updatePayment(id,model):Observable<Payment>{
     return this.http.put<Payment>('http://localhost:3000/api/payments/'+id,model)
   }
+
+  getMyPaidVehicle(id):Observable<Payment[]>{
+    return this.http.get<Payment[]>('http://localhost:3000/api/payments/myPaidVehicles/'+id);
+}
 }
 

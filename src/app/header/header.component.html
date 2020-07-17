@@ -4,17 +4,21 @@
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <form class="form-inline mr-auto ml-5">
+    <!-- <form class="form-inline mr-auto ml-5">
         <input type="text" class="form-control " placeholder="Search">
         <button type="submit" class="btn btn-outline-light">Search</button>
-    </form>
+    </form> -->
 
     <div class="collapse navbar-collapse " id="navbarCollapse">
         <div class="navbar-nav ml-auto pr-5">
-          <a href="#" class="nav-item nav-link">My Profile</a>
-          <a href="#" class="nav-item nav-link">Contacts</a>
-          <a href="#" class="nav-item nav-link">Logout</a>
+          <!-- <a href="#" class="nav-item nav-link">My Profile</a>
+          <a href="#" class="nav-item nav-link">Contacts</a> -->
+          <!-- <a href="#" class="nav-item nav-link">Logout</a> -->
 
+          <button *ngIf="loggedIn" (click)="logout()" mat-raised-button color="primary">Logout</button>
+          <button *ngIf="!loggedIn" (click)="login()" mat-raised-button color="primary">Login</button>
+          <!-- <button *ngIf="loggedIn" mat-raised-button color="primary">{{userName}}</button> -->
+          
             
         </div>
 

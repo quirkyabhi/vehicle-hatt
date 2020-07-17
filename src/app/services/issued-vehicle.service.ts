@@ -24,4 +24,8 @@ export class IssuedVehicleService {
   updateIssuedVehicle(id,model):Observable<IssuedVehicle>{
     return this.http.put<IssuedVehicle>('http://localhost:3000/api/issuedVehicles/'+id,model)
   }
+
+  getMyIssuedVehicle(id):Observable<IssuedVehicle[]>{
+    return this.http.get<IssuedVehicle[]>('http://localhost:3000/api/issuedVehicles/myIssuedVehicles/'+id);
+}
 }
