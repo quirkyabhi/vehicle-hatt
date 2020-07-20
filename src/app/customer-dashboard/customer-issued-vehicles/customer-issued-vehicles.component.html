@@ -5,7 +5,7 @@
   </mat-form-field>
   
   <div class="example-container mat-elevation-z8">
-    <table mat-table [dataSource]="dataSource" matSort>
+    <table matSortActive="isActive" matSortDirection="desc" mat-table [dataSource]="dataSource" matSort>
   
       <ng-container matColumnDef="_id">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
@@ -14,7 +14,7 @@
   
       <ng-container matColumnDef="vehicleNo">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Vehicle No</th>
-        <td mat-cell *matCellDef="let row"> {{row.vehicleNo}}% </td>
+        <td mat-cell *matCellDef="let row"> {{row.vehicleNo}} </td>
       </ng-container>
   
       <ng-container matColumnDef="vehicleName">
@@ -46,7 +46,7 @@
 
 
       <ng-container matColumnDef=finePerDay>
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Return Date</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Fine Per Day</th>
         <td mat-cell *matCellDef="let row"> {{row.finePerDay}} </td>
       </ng-container>
 
@@ -56,12 +56,18 @@
         <td mat-cell *matCellDef="let row"> {{row.totalRent}} </td>
       </ng-container>
 
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      <ng-container matColumnDef="isActive">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Still Rented </th>
+        <td mat-cell *matCellDef="let row" > {{row.isActive}} </td>
+      </ng-container>
+
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"  ></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="isActive" [ngClass]="{'isInActive': row.isActive == 'false'}"></tr>
   
       
       <tr class="mat-row" *matNoDataRow>
-        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+        <td class="mat-cell" colspan="4">No data matching the filter </td>
       </tr>
     </table>
   

@@ -1,4 +1,4 @@
-
+<!-- 
 <section class="cards">
     <div class="container text-center">
         <div class="row">
@@ -109,4 +109,42 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
+<div class="cards container">
+    <div class="row">
+        <div class="col-md-4 col-sm-6 mx-auto my-5" *ngFor="let vehicle of vehicleList">
+            <div class="card-section">
+                <div class="card" style="width: 18rem;">
+                    <img *ngIf="vehicle.url" src="http://localhost:3000/{{vehicle.url}}" class="card-img-top" alt="www.https://lagazellelimo.com/assets/imgs/no_vehicle.png">
+                    <img *ngIf="!vehicle.url" src="https://lagazellelimo.com/assets/imgs/no_vehicle.png" class="card-img-top" >
+                   
+                    <div class="card-body">
+                      <span class="card-title">
+                          <div class=" row">
+                              <div class=" col-sm-6">
+                                <p>
+                                    Vehicle Name
+                                </p>
+                                <p>
+                                    Vehicle No  
+                                </p>
+                              </div>
+                              <div class=" col-sm-6 " style=" text-align: right;">
+                                <p>
+                                    {{vehicle.vehicleName}}
+                                </p>
+                                <p>
+                                    {{vehicle.vehicleNo}}
+                                </p>
+                              </div>
+                          </div>
+                        <!-- Vehicle Name : {{vehicle.vehicleName}} <br>
+                        Vehicle No   : {{vehicle.vehicleNo}} -->
+                        </span>
+                      <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                      <button mat-raised-button color="primary" class=" shadow">Details</button>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>

@@ -18,7 +18,7 @@ export class CustomerIssuedVehiclesComponent implements OnInit {
   dataSource: MatTableDataSource<IssuedVehicle>;
 
 
-  displayedColumns: string[] = [ '_id','vehicleNo','vehicleName','issueDate', 'returnDate','securityAmount','rentPerDay','finePerDay','totalRent'];
+  displayedColumns: string[] = [ '_id','vehicleNo','vehicleName','issueDate', 'returnDate','securityAmount','rentPerDay','finePerDay','totalRent','isActive'];
   
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
@@ -35,7 +35,10 @@ export class CustomerIssuedVehiclesComponent implements OnInit {
   getId(){
     this.sharedLoggedInUserService.currenLoggedUserData.subscribe(data=>{
       this.currentUser=data
-      console.log(this.currentUser)
+      // console.log(this.currentUser)
+      if (data=='') {
+        this.router.navigate(['login'])
+      }
     })
   }
   getIssuedVehicleList(){

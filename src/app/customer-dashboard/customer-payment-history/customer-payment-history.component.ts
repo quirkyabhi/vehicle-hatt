@@ -5,6 +5,7 @@ import {MatTableDataSource} from '@angular/material/table';
 import { Payment } from 'src/app/services/payment';
 import { SharedLoggedInUserService } from 'src/app/login/sharedLoggedInUser';
 import { PaymentService } from 'src/app/services/payment.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-customer-payment-history',
@@ -22,7 +23,7 @@ export class CustomerPaymentHistoryComponent implements OnInit {
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
  
-  constructor(private paymentService:PaymentService,private sharedLoggedInUserService:SharedLoggedInUserService) { 
+  constructor(private router: Router,private paymentService:PaymentService,private sharedLoggedInUserService:SharedLoggedInUserService) { 
     
   }
   
@@ -33,7 +34,10 @@ export class CustomerPaymentHistoryComponent implements OnInit {
   getId(){
     this.sharedLoggedInUserService.currenLoggedUserData.subscribe(data=>{
       this.currentUser=data
-      console.log(this.currentUser)
+      // console.log(this.currentUser)
+      if (data=='') {
+        this.router.navigate(['login'])
+      }
     })
   }
   getPayments(){
@@ -43,7 +47,7 @@ export class CustomerPaymentHistoryComponent implements OnInit {
        this.dataSource = new MatTableDataSource<Payment>(this.paidList)
        this.dataSource.sort = this.sort;
        this.dataSource.paginator = this.paginator;
-      console.log(this.paidList)
+      // console.log(this.paidList)
     })
   }
   applyFilter(event: Event) {

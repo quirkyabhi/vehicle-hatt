@@ -4,7 +4,7 @@
       <a [routerLink]="'../vehicle-list'">
         <div class="card-counter primary">
           <i class="fa fa-car" aria-hidden="true"></i>
-          <span class="count-numbers">12</span>
+          <span class="count-numbers">{{availableVehicleCount}}</span>
           <span class="count-name">Available Vehicles</span>
         </div>
       </a>
@@ -14,7 +14,7 @@
       <a [routerLink]="'../vehicles-rented'">
         <div class="card-counter danger">
           <i class="fa fa-car" aria-hidden="true"></i>
-          <span class="count-numbers">599</span>
+          <span class="count-numbers">{{currentIssuedCount}}</span>
           <span class="count-name">Rented Vehicles</span>
         </div>
       </a>
@@ -24,7 +24,7 @@
       <a [routerLink]="'../user-list'">
         <div class="card-counter success">
           <i class="fa fa-users"></i>
-          <span class="count-numbers">6875</span>
+          <span class="count-numbers">{{customerCount}}</span>
           <span class="count-name">Registered Users</span>
         </div>
       </a>
@@ -34,7 +34,7 @@
       <a [routerLink]="'../payment-details'">
         <div class="card-counter info">
           <i class="fa fa-money"></i>
-          <span class="count-numbers">35 $</span>
+          <span class="count-numbers">{{totalPayment}} ₹</span>
           <span class="count-name">Payment Received</span>
         </div>
       </a>

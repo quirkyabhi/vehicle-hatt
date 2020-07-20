@@ -45,7 +45,7 @@ export class UpdateUserComponent implements OnInit {
   getCurrentUserData(){
     this.sharedUserService.currenUsertData.subscribe(data=>{
       this.customerDetails=data;
-      console.log(data)
+      // console.log(data)
       this.userId= this.customerDetails._id
       this.updateUserForm.patchValue(this.customerDetails);
     });

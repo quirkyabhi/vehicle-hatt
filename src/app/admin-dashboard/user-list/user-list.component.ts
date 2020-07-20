@@ -47,7 +47,7 @@ export class UserListComponent implements OnInit {
   editUser(data){
     // alert(data);
     this.sharedUserService.updateMessage(data);
-    console.log(data)
+    // console.log(data)
     this.router.navigate(['admin-dashboard/update-user'])
 
   }

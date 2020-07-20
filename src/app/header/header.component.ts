@@ -31,6 +31,7 @@ export class HeaderComponent implements OnInit {
   }
   logout(){
     this.router.navigate(['login'])
+    this.loggedIn=false
   }
   login(){
     this.router.navigate(['login'])

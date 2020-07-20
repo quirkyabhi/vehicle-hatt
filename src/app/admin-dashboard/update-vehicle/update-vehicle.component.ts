@@ -14,11 +14,28 @@ export class UpdateVehicleComponent implements OnInit {
   updateVehicleForm: FormGroup;
   vehicleId: string;
   vehicleDetails: any={};
+  selectedFile: File=null
+
   constructor( private sharedVehicleService: SharedVehicleService, private vehicleService: VehicleService ,private fb:FormBuilder,private _snackBar: MatSnackBar, private router: Router) { }
 
   ngOnInit(): void {
     this.createUpdateForm()
     this.getCurrentVehicleData()
+  }
+  onFileSelected(event){
+    this.selectedFile=<File>event.target.files[0]
+  }
+  onUpload(){
+    const fd= new FormData();
+    fd.append('url',this.selectedFile,this.selectedFile.name)
+    this.vehicleService.updateVehicle(this.vehicleId,fd).subscribe(data=>{
+      this._snackBar.open('Upload Image ', 'Success', {
+        duration: 4000,
+      }) 
+    }, err=> this._snackBar.open('Update Details', 'Failed', {
+      duration: 4000,
+    }
+      ))
   }
   createUpdateForm(){
     this.updateVehicleForm= this.fb.group({

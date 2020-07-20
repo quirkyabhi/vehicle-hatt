@@ -20,6 +20,7 @@ import { CustomerVehiclesAvailableComponent } from './customer-dashboard/custome
 import { AddVehicleComponent } from './admin-dashboard/add-vehicle/add-vehicle.component';
 import { UpdateUserComponent } from './admin-dashboard/update-user/update-user.component';
 import { UpdateVehicleComponent } from './admin-dashboard/update-vehicle/update-vehicle.component';
+import { MyProfileComponent } from './customer-dashboard/my-profile/my-profile.component';
 
 
 
@@ -104,6 +105,10 @@ import { UpdateVehicleComponent } from './admin-dashboard/update-vehicle/update-
         {
           path:  'vehicles-available',
           component: CustomerVehiclesAvailableComponent
+        },
+        {
+          path:  'my-profile',
+          component: MyProfileComponent
         },
 
       ]

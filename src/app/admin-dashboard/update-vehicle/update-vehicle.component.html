@@ -1,4 +1,12 @@
 <div class=" container-sm">
+    <div class=" col-md-8 offset-4 mt-5">
+       <input type="file" (change)="onFileSelected($event)">
+       <button type="button" (click)="onUpload()">Upload</button>
+    </div>
+</div>
+
+
+<div class=" container-sm">
     <div class=" col-md-4 offset-4 mt-5"> 
     
     <form class=" form-container "  (ngSubmit)="updateVehicle()" novalidate [formGroup]="updateVehicleForm">
@@ -31,9 +39,9 @@
         <mat-form-field class="form-width">
             <input matInput placeholder="Security Amount" type="number" required formControlName="securityAmount">
         </mat-form-field> 
-        <mat-form-field class="form-width">
+        <!-- <mat-form-field class="form-width">
             <input matInput placeholder="insurance no." type="text" required formControlName="insuranceNo">
-        </mat-form-field>
+        </mat-form-field> -->
         <mat-form-field class="form-width">
             <input matInput placeholder="Description" type="text"  formControlName="description">
         </mat-form-field> 

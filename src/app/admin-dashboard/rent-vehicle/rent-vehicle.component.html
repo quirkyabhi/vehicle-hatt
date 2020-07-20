@@ -7,7 +7,7 @@
             <mat-label>Vehicle name</mat-label>
             <mat-select formControlName="vehicleName">
               <mat-option *ngFor="let vehicleName of vehicleList" [value]="vehicleName">
-                {{vehicleName.vehicleName}}
+                {{vehicleName.vehicleName }} :: {{vehicleName.vehicleNo}}
               </mat-option>
             </mat-select>
           </mat-form-field>

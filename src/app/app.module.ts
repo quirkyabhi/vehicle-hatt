@@ -46,7 +46,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { UpdateUserComponent } from './admin-dashboard/update-user/update-user.component';
 import { UpdateVehicleComponent } from './admin-dashboard/update-vehicle/update-vehicle.component';
-import {MatSortModule} from '@angular/material/sort'
+import {MatSortModule} from '@angular/material/sort';
+import { MyProfileComponent } from './customer-dashboard/my-profile/my-profile.component'
 
 @NgModule({
   declarations: [
@@ -74,6 +75,7 @@ import {MatSortModule} from '@angular/material/sort'
     CustomerDashComponent,
     UpdateUserComponent,
     UpdateVehicleComponent,
+    MyProfileComponent,
     
   ],
   imports: [
