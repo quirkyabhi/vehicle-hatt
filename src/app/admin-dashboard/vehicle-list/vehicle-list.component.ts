@@ -33,7 +33,7 @@ export class VehicleListComponent implements OnInit {
     })
   }
 
-  displayedColumns: string[] = [ '_id','isAvailable','vehicleName','vehicleType','rentPerDay','fine','securityAmount','vehicleNo','registrationNo', 'insuranceNo', 'year','kmRan','model','color','description','isActive','createdAt'];
+  displayedColumns: string[] = [ '_id','url','isAvailable','vehicleName','vehicleType','rentPerDay','fine','securityAmount','vehicleNo','registrationNo', 'insuranceNo', 'year','kmRan','model','color','description','isActive','createdAt'];
   
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;

@@ -29,7 +29,7 @@ export class UserListComponent implements OnInit {
     })
   }
 
-  displayedColumns: string[] = [ '_id','fname','lname','email', 'gender', 'phone','dlNo','dob','age','address','state','city','pin','isActive','createdAt'];
+  displayedColumns: string[] = [ '_id','url','fname','lname','email', 'gender', 'phone','dlNo','dob','age','address','state','city','pin','isActive','createdAt'];
   
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
