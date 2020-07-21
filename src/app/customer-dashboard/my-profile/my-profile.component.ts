@@ -14,6 +14,7 @@ export class MyProfileComponent implements OnInit {
   updateUserForm: FormGroup;
   currentUser: any={}
   selectedFile: File=null
+  imageUrl :string
   constructor(private sharedLoggedInUserService:SharedLoggedInUserService, private customerService: CustomerService ,private fb:FormBuilder,private _snackBar: MatSnackBar, private router: Router) { }
 
   ngOnInit(): void {
@@ -27,6 +28,8 @@ export class MyProfileComponent implements OnInit {
     const fd= new FormData();
     fd.append('url',this.selectedFile,this.selectedFile.name)
     this.customerService.updateUser(this.currentUser._id,fd).subscribe(data=>{
+      this.imageUrl=data.url
+      // console.log(data)
       this._snackBar.open('Upload Image ', 'Success', {
         duration: 4000,
       }) 
@@ -58,6 +61,7 @@ export class MyProfileComponent implements OnInit {
   getId(){
     this.sharedLoggedInUserService.currenLoggedUserData.subscribe(data=>{
       this.currentUser=data
+      this.imageUrl=this.currentUser.url
       if (data=='') {
         this.router.navigate(['login'])
       }

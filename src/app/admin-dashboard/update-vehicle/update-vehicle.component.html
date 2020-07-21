@@ -7,76 +7,86 @@
 
 
 <div class=" container-sm">
-    <div class=" col-md-4 offset-4 mt-5"> 
+    <div class=" row">
+        
+            <div class=" col-md-4">
+                <img *ngIf="imageUrl" src="http://localhost:3000/{{imageUrl}}" class="card-img-top"
+                            alt="none">
+                <img *ngIf="!imageUrl" src="https://icon-library.com/images/no-user-image-icon/no-user-image-icon-23.jpg"
+                            class="card-img-top">
+            </div>
+            <div class=" col-md-4 mt-5"> 
     
-    <form class=" form-container "  (ngSubmit)="updateVehicle()" novalidate [formGroup]="updateVehicleForm">
-        <mat-form-field class="form-width">
-            <input matInput placeholder="Vehicle name" type="text" required formControlName="vehicleName">
-        </mat-form-field>
-        <mat-form-field class="form-width">
-            <input matInput placeholder="Vehicle no." type="text" required formControlName="vehicleNo">
-        </mat-form-field>
-        <mat-form-field class="form-width">
-            <input matInput placeholder="Registration No" type="text" required formControlName="registrationNo">
-        </mat-form-field>
-        <mat-form-field class="form-width">
-            <input matInput placeholder="insurance no." type="text" required formControlName="insuranceNo">
-        </mat-form-field>
-           <mat-form-field>
-            <mat-label>Vehicle Type</mat-label>
-            <mat-select matNativeControl required formControlName="vehicleType">
-              <mat-option value="Moto">Moto</mat-option>
-              <mat-option value="Hatchback">Hatchback</mat-option>
-              <mat-option value="Sedan">Sedan</mat-option>
-              <mat-option value="SUV">SUV</mat-option>
-              <mat-option value="Minibus">Minibus</mat-option>
-
-            </mat-select>
-        </mat-form-field>
-        <mat-form-field class="form-width">
-            <input matInput placeholder="Rent per day" type="number" required formControlName="rentPerDay">
-        </mat-form-field> 
-        <mat-form-field class="form-width">
-            <input matInput placeholder="Security Amount" type="number" required formControlName="securityAmount">
-        </mat-form-field> 
-        <!-- <mat-form-field class="form-width">
-            <input matInput placeholder="insurance no." type="text" required formControlName="insuranceNo">
-        </mat-form-field> -->
-        <mat-form-field class="form-width">
-            <input matInput placeholder="Description" type="text"  formControlName="description">
-        </mat-form-field> 
-        <mat-form-field class="form-width">
-            <input matInput placeholder="year" type="number"  formControlName="year">
-        </mat-form-field> 
-        <mat-form-field class="form-width">
-            <input matInput placeholder="Kms ran" type="number"  formControlName="kmRan">
-        </mat-form-field> 
-        <mat-form-field class="form-width">
-            <input matInput placeholder="Model" type="text"  formControlName="model">
-        </mat-form-field> 
-        <mat-form-field class="form-width">
-            <input matInput placeholder="Color" type="text"  formControlName="color">
-        </mat-form-field> 
-        <mat-form-field >
-            <mat-label>Availability</mat-label>
-            <mat-select matNativeControl  formControlName="isAvailable">
-              <mat-option  value="Available">Available</mat-option>
-              <mat-option value="Not Available">Not Available</mat-option>
-              <!-- <mat-option value="Other">Other</mat-option> -->
-            </mat-select>
-        </mat-form-field>
-        <mat-form-field >
-            <mat-label>Is Active</mat-label>
-            <mat-select matNativeControl  formControlName="isActive">
-              <mat-option  value=true>Active</mat-option>
-              <mat-option value=false>Inactive</mat-option>
-              <!-- <mat-option value="Other">Other</mat-option> -->
-            </mat-select>
-        </mat-form-field>
-        <div>
-            <button mat-raised-button type="submit" color="primary">Update Vehicle </button>
-            <button class="right" mat-raised-button type="reset" color="default">Cancel</button>
-        </div>
-    </form>
+                <form class=" form-container "  (ngSubmit)="updateVehicle()" novalidate [formGroup]="updateVehicleForm">
+                    <mat-form-field class="form-width">
+                        <input matInput placeholder="Vehicle name" type="text" required formControlName="vehicleName">
+                    </mat-form-field>
+                    <mat-form-field class="form-width">
+                        <input matInput placeholder="Vehicle no." type="text" required formControlName="vehicleNo">
+                    </mat-form-field>
+                    <mat-form-field class="form-width">
+                        <input matInput placeholder="Registration No" type="text" required formControlName="registrationNo">
+                    </mat-form-field>
+                    <mat-form-field class="form-width">
+                        <input matInput placeholder="insurance no." type="text" required formControlName="insuranceNo">
+                    </mat-form-field>
+                       <mat-form-field>
+                        <mat-label>Vehicle Type</mat-label>
+                        <mat-select matNativeControl required formControlName="vehicleType">
+                          <mat-option value="Moto">Moto</mat-option>
+                          <mat-option value="Hatchback">Hatchback</mat-option>
+                          <mat-option value="Sedan">Sedan</mat-option>
+                          <mat-option value="SUV">SUV</mat-option>
+                          <mat-option value="Minibus">Minibus</mat-option>
+            
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field class="form-width">
+                        <input matInput placeholder="Rent per day" type="number" required formControlName="rentPerDay">
+                    </mat-form-field> 
+                    <mat-form-field class="form-width">
+                        <input matInput placeholder="Security Amount" type="number" required formControlName="securityAmount">
+                    </mat-form-field> 
+                    <!-- <mat-form-field class="form-width">
+                        <input matInput placeholder="insurance no." type="text" required formControlName="insuranceNo">
+                    </mat-form-field> -->
+                    <mat-form-field class="form-width">
+                        <input matInput placeholder="Description" type="text"  formControlName="description">
+                    </mat-form-field> 
+                    <mat-form-field class="form-width">
+                        <input matInput placeholder="year" type="number"  formControlName="year">
+                    </mat-form-field> 
+                    <mat-form-field class="form-width">
+                        <input matInput placeholder="Kms ran" type="number"  formControlName="kmRan">
+                    </mat-form-field> 
+                    <mat-form-field class="form-width">
+                        <input matInput placeholder="Model" type="text"  formControlName="model">
+                    </mat-form-field> 
+                    <mat-form-field class="form-width">
+                        <input matInput placeholder="Color" type="text"  formControlName="color">
+                    </mat-form-field> 
+                    <mat-form-field >
+                        <mat-label>Availability</mat-label>
+                        <mat-select matNativeControl  formControlName="isAvailable">
+                          <mat-option  value="Available">Available</mat-option>
+                          <mat-option value="Not Available">Not Available</mat-option>
+                          <!-- <mat-option value="Other">Other</mat-option> -->
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field >
+                        <mat-label>Is Active</mat-label>
+                        <mat-select matNativeControl  formControlName="isActive">
+                          <mat-option  value=true>Active</mat-option>
+                          <mat-option value=false>Inactive</mat-option>
+                          <!-- <mat-option value="Other">Other</mat-option> -->
+                        </mat-select>
+                    </mat-form-field>
+                    <div>
+                        <button mat-raised-button type="submit" color="primary">Update Vehicle </button>
+                        <button class="right" mat-raised-button type="reset" color="default">Cancel</button>
+                    </div>
+                </form>
+            </div>
     </div>
+    
 </div>

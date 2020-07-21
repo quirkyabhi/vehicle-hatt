@@ -15,7 +15,7 @@ export class UpdateUserComponent implements OnInit {
   updateUserForm: FormGroup;
   userId: string;
   customerDetails:any={};
-
+  imageUrl:string;
   constructor( private sharedUserService: SharedUserService, private customerService: CustomerService ,private fb:FormBuilder,private _snackBar: MatSnackBar, private router: Router) { }
 
   ngOnInit(): void {
@@ -45,6 +45,7 @@ export class UpdateUserComponent implements OnInit {
   getCurrentUserData(){
     this.sharedUserService.currenUsertData.subscribe(data=>{
       this.customerDetails=data;
+      this.imageUrl= this.customerDetails.url
       // console.log(data)
       this.userId= this.customerDetails._id
       this.updateUserForm.patchValue(this.customerDetails);

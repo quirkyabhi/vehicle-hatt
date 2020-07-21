@@ -15,6 +15,8 @@ export class UpdateVehicleComponent implements OnInit {
   vehicleId: string;
   vehicleDetails: any={};
   selectedFile: File=null
+  imageUrl :string
+
 
   constructor( private sharedVehicleService: SharedVehicleService, private vehicleService: VehicleService ,private fb:FormBuilder,private _snackBar: MatSnackBar, private router: Router) { }
 
@@ -29,6 +31,7 @@ export class UpdateVehicleComponent implements OnInit {
     const fd= new FormData();
     fd.append('url',this.selectedFile,this.selectedFile.name)
     this.vehicleService.updateVehicle(this.vehicleId,fd).subscribe(data=>{
+      this.imageUrl=data.url
       this._snackBar.open('Upload Image ', 'Success', {
         duration: 4000,
       }) 
@@ -61,6 +64,8 @@ export class UpdateVehicleComponent implements OnInit {
   getCurrentVehicleData(){
     this.sharedVehicleService.currentVehicleData.subscribe(data=>{
       this.vehicleDetails=data;
+      this.imageUrl=this.vehicleDetails.url
+
       console.log(data)
       this.vehicleId= this.vehicleDetails._id
       this.updateVehicleForm.patchValue(this.vehicleDetails);
