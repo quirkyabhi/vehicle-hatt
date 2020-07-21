@@ -73,10 +73,11 @@ export class MyProfileComponent implements OnInit {
     this.customerService.updateUser(this.currentUser._id,this.updateUserForm.value).subscribe(data=>{
       console.log("success")
       // console.log(data)
-      this.sharedLoggedInUserService.updateMessage(this.updateUserForm.value)
+      this.sharedLoggedInUserService.updateMessage(data)
       this._snackBar.open('Update Details', 'Success', {
         duration: 4000,
       })
+      this.router.navigate(['customer-dashboard'])
     }, err=> this._snackBar.open('Update Details', 'Failed', {
       duration: 4000,
     }

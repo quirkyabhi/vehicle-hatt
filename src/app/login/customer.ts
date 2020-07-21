@@ -3,7 +3,7 @@ export class Customer {
     fname:string;
     lname:string;
     email:string;
-    // password:string;
+    password:string;
     gender:string;
     phone:number;
     dlNo:string;

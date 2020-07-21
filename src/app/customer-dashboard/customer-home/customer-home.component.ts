@@ -4,18 +4,20 @@ import { PaymentService } from 'src/app/services/payment.service';
 import { IssuedVehicleService } from 'src/app/services/issued-vehicle.service';
 import { VehicleService } from 'src/app/services/vehicle.service';
 import { Router } from '@angular/router';
-
+import $ from 'jquery';
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-customer-home',
   templateUrl: './customer-home.component.html',
   styleUrls: ['./customer-home.component.scss']
 })
 export class CustomerHomeComponent implements OnInit {
+  
   currentUser:any={}
   totalPaid:number;
   totalIssued:number;
   availableVehicleCount:number;
-  constructor(private router:Router,private vehicleService: VehicleService,private issuedVehicleService: IssuedVehicleService,private paymentService:PaymentService,private sharedLoggedInUserService:SharedLoggedInUserService) { 
+  constructor(private _snackBar:MatSnackBar,private router:Router,private vehicleService: VehicleService,private issuedVehicleService: IssuedVehicleService,private paymentService:PaymentService,private sharedLoggedInUserService:SharedLoggedInUserService) { 
   
   }
 
@@ -24,10 +26,25 @@ export class CustomerHomeComponent implements OnInit {
     this.getPayments()
     this.getIssuedVehicleList()
     this.getAvailableVehicleCount()
+    // this.open()
   }
+ 
+  // open(){
+   
+  // }
+   
+ 
   getId(){
     this.sharedLoggedInUserService.currenLoggedUserData.subscribe(data=>{
       this.currentUser=data
+      if (this.currentUser.password=="00000") {
+        this._snackBar.open('Change Password', 'You were added by Admin', {
+          duration: 4000,
+        });
+        this.router.navigate(['customer-dashboard/my-profile'])
+      } else {
+        
+      }
       if (data=='') {
         this.router.navigate(['login'])
       }
