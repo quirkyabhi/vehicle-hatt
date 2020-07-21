@@ -11,6 +11,7 @@ import { SharedLoggedInUserService } from 'src/app/login/sharedLoggedInUser';
   styleUrls: ['./my-profile.component.scss']
 })
 export class MyProfileComponent implements OnInit {
+  hide=true
   updateUserForm: FormGroup;
   currentUser: any={}
   selectedFile: File=null

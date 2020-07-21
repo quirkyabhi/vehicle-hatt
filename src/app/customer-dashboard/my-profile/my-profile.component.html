@@ -36,7 +36,9 @@
                 </mat-form-field>
                 <br>
                 <mat-form-field class="form-width">
-                    <input matInput placeholder="Password" type="password"  formControlName="password">
+                    <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" formControlName="password" required>
+                    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    <!-- <mat-hint *ngIf="!passwordInput.value">Enter your password</mat-hint> -->
                 </mat-form-field>
                 <br>
                 <mat-form-field class="form-width">

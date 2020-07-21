@@ -13,18 +13,47 @@ import { SharedLoggedInUserService } from './sharedLoggedInUser';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
- 
-
+  pass:string;
+  confirmPass:string
+  hide=true
   signupForm: FormGroup;
   loginForm: FormGroup;
-
+  disable=true
 
   constructor(private sharedLoggedInUserService:  SharedLoggedInUserService,private fb:FormBuilder, private customerService:CustomerService,private _snackBar: MatSnackBar, private router: Router) { }
 
   ngOnInit(): void {
     this.createLoginForm()
     this.createSignupForm()
+    this.confirm()
   }
+  confirm(){
+    this.signupForm.get('password').valueChanges.subscribe(password=> {
+
+      this.pass=password
+      if(this.confirmPass==this.pass){
+        this.disable=false;
+        this._snackBar.open('Passwords', 'Match', {
+          duration: 4000,
+        }
+          )
+      }else{
+        this.disable=true
+      }
+     })
+    if(this.confirmPass==this.pass){
+      this.disable=false;
+      
+    }
+    else{
+      this.disable=true
+      this._snackBar.open('Passwords', "Don't match", {
+        duration: 4000,
+      }
+        )
+    }
+  }
+  
 
   createSignupForm(){
     this.signupForm= this.fb.group({
@@ -60,7 +89,7 @@ export class LoginComponent implements OnInit {
         duration: 4000,
       }
         )
-      console.log(data)
+      // console.log(data)
     },  err=> this._snackBar.open('Signup', 'Failed', {
       duration: 4000,
     }
@@ -82,7 +111,7 @@ export class LoginComponent implements OnInit {
       // console.log(data)
       // alert("login successful")
       
-    }, err=> this._snackBar.open('Signup', 'Failed', {
+    }, err=> this._snackBar.open('Login', 'Failed', {
       duration: 4000,
     }
       )
