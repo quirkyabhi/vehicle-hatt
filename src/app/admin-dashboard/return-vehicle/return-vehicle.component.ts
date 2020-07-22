@@ -21,6 +21,7 @@ export class ReturnVehicleComponent implements OnInit {
   vehicleList:any
   returnVehicleForm:FormGroup;
   updatedVehicleObj:Vehicle= new Vehicle()
+  securityAmountBind:number
  
   constructor(private paymentService: PaymentService,private issuedVehicleService: IssuedVehicleService, private vehicleService: VehicleService, private customerService:CustomerService, private fb:FormBuilder,private _snackBar: MatSnackBar, private router: Router) { }
 
@@ -68,7 +69,7 @@ export class ReturnVehicleComponent implements OnInit {
     this.returnVehicleForm.value.issueId= this.customerEmailForm.value.userEmail._id
     let diff=Math.floor((nowTime - timeThen)/(1000 * 3600 * 24))
     if (diff>0) {
-      this.returnVehicleForm.value.fine= diff*(this.customerEmailForm.value.userEmail.finePerDay)
+      this.returnVehicleForm.value.fine= diff*(this.customerEmailForm.value.userEmail.finePerDay + this.customerEmailForm.value.userEmail.rentPerDay) 
     } else {
       this.returnVehicleForm.value.fine= 0
     }
@@ -76,6 +77,7 @@ export class ReturnVehicleComponent implements OnInit {
     this.returnVehicleForm.value.totalRent=this.returnVehicleForm.value.fine+this.customerEmailForm.value.userEmail.totalRent
     this.returnVehicleForm.patchValue(this.returnVehicleForm.value)
     this.returnVehicleForm.value.userId=this.customerEmailForm.value.userEmail.userId
+    this.securityAmountBind= this.customerEmailForm.value.userEmail.securityAmount
   }
   pay(){
     // console.log(this.returnVehicleForm.value)

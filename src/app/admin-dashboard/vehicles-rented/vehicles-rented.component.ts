@@ -31,7 +31,7 @@ export class VehiclesRentedComponent implements OnInit {
     })
   }
 
-  displayedColumns: string[] = [ '_id','vehicleName','userName','issueDate', 'returnDate', 'totalRent','isActive','createdAt'];
+  displayedColumns: string[] = [ '_id','vehicleName','userName','issueDate', 'returnDate', 'securityAmount','totalRent','isActive','createdAt'];
   
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;

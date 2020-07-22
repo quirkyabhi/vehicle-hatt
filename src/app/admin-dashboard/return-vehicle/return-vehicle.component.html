@@ -31,6 +31,9 @@
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Security Amount" type="number" readonly [ngModelOptions]="{standalone: true}" [(ngModel)]="securityAmountBind">
+            </mat-form-field>
             
             <mat-form-field  class="form-width">
                 <input  matInput placeholder="Fine" type="number"  formControlName="fine">
