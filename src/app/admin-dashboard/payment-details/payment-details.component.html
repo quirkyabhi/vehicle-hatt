@@ -4,7 +4,7 @@
   </mat-form-field>
   
   <div class="example-container mat-elevation-z8">
-    <table mat-table [dataSource]="dataSource" matSort>
+    <table matSortActive="createdDate" matSortDirection="desc" mat-table [dataSource]="dataSource" matSort>
   
       <!-- ID Column -->
       <ng-container matColumnDef="_id">
