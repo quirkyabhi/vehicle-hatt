@@ -51,7 +51,7 @@ export class VehicleListComponent implements OnInit {
   editVehicle(data){
     // alert(data);
     this.sharedVehicleService.updateMessage(data);
-    console.log(data)
+    // console.log(data)
     this.router.navigate(['admin-dashboard/update-vehicle'])
 
   }
