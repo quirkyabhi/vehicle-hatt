@@ -48,6 +48,7 @@ import { UpdateUserComponent } from './admin-dashboard/update-user/update-user.c
 import { UpdateVehicleComponent } from './admin-dashboard/update-vehicle/update-vehicle.component';
 import {MatSortModule} from '@angular/material/sort';
 import { MyProfileComponent } from './customer-dashboard/my-profile/my-profile.component'
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -109,6 +110,7 @@ import { MyProfileComponent } from './customer-dashboard/my-profile/my-profile.c
     MatExpansionModule,
     MatSnackBarModule,
     MatSortModule,
+    Ng2SearchPipeModule,
     
     
     // FormControl,

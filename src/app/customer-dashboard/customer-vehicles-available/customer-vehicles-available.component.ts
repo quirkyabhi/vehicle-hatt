@@ -16,6 +16,8 @@ export class CustomerVehiclesAvailableComponent implements OnInit {
   vehicleHatchback:any
   vehicleSUV:any
   vehicleMinibus:any
+  searchedKeyword: string
+  
   ngOnInit(): void {
     this.getVehicleList()
   }
