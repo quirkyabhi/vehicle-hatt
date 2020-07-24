@@ -1,18 +1,19 @@
  <div class=" container-sm">
 <div class=" col-md-4 offset-4 mt-5"> 
 
-<form class=" form-container "  (ngSubmit)="addUser()" novalidate [formGroup]="addUserForm">
+<!-- <form class=" form-container "  (ngSubmit)="addUser()" novalidate [formGroup]="addUserForm">
+    <div class="form-wrapper">
+        <label for="">First Name</label>                     
+        <input class="form-control"  placeholder="First name" type="text" required formControlName="fname">
+    </div>      
     <mat-form-field class="form-width">
-        <input matInput placeholder="First name" type="text" required formControlName="fname">
+        <input class="form-control"  placeholder="Last name" type="text" required formControlName="lname">
     </mat-form-field>
     <mat-form-field class="form-width">
-        <input matInput placeholder="Last name" type="text" required formControlName="lname">
+        <input class="form-control"  placeholder="Email" type="email" required formControlName="email">
     </mat-form-field>
     <mat-form-field class="form-width">
-        <input matInput placeholder="Email" type="email" required formControlName="email">
-    </mat-form-field>
-    <mat-form-field class="form-width">
-        <input matInput placeholder="Phone" type="tel" required formControlName="phone">
+        <input class="form-control"  placeholder="Phone" type="tel" required formControlName="phone">
     </mat-form-field>
        <mat-form-field>
         <mat-label>Gender</mat-label>
@@ -21,7 +22,7 @@
           <mat-option value="Female">Female</mat-option>
           <mat-option value="Other">Other</mat-option>
         </mat-select>
-    </mat-form-field>
+    </mat-form-field> -->
     <!-- <mat-form-field>
         <mat-label>Choose a date</mat-label>
         <input matInput [matDatepicker]="picker">
@@ -40,7 +41,7 @@
     <mat-form-field class="form-width">
         <input matInput placeholder="PIN" type="number" required>
     </mat-form-field> -->
-    <mat-form-field class="form-width">
+    <!-- <mat-form-field class="form-width">
         <input matInput placeholder="Dl license no" type="text" required formControlName="dlNo">
     </mat-form-field> 
     <br>
@@ -48,5 +49,56 @@
         <button mat-raised-button type="submit" color="primary">add </button>
         <button class="right" mat-raised-button type="reset" color="default">Cancel</button>
     </div>
-</form>
-</div></div>
+</form> -->
+<!-- </div></div> -->
+<div class="container-fluid  justify-content-center form-center" >
+    <div class="col-12">
+<div class="wrapper">
+    <div class="inner">
+        <form action="" class=" form-container "  (ngSubmit)="addUser()" novalidate [formGroup]="addUserForm">
+            <h3>Add User</h3>
+          
+            <div class="form-group row">
+                <div class="col-lg-6 col-sm-12">
+                    <label for="">First Name</label>
+                    <input class="form-control"  placeholder="First name" type="text" required formControlName="fname">
+                </div>
+                <div class="col-lg-6 col-sm-12">
+                    <label for="">Last Name</label>
+                    <input class="form-control"  placeholder="Last name" type="text" required formControlName="lname">
+                </div>
+            </div>
+            <div class="row">
+            <div class=" col-lg-12 col-md-12 col-sm-12">
+                <label for="">Email</label>
+                <input class="form-control"  placeholder="Email" type="email" required formControlName="email">
+            </div>
+        </div>
+        <div class="row">
+            <div class=" col-lg-12 col-md-12 col-sm-12">
+                <label for="">Phone Number</label>
+                <input class="form-control"  placeholder="Phone" type="tel" required formControlName="phone">
+            </div>
+        </div>
+            <div class="form-group row">
+                <div class=" col-lg-6 col-md-6 col-sm-12">
+                <label for="">Gender</label>
+                <select  class="form-control" placeholder="Gender" required formControlName="gender">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                  </select>
+            </div>
+            <div class=" col-lg-6 col-md-6 col-sm-12">
+                <label for="">License Nmbers</label>
+                <input class="form-control" placeholder="Dl license no" type="text" required formControlName="dlNo">
+            </div>
+        </div>
+        <button  type="submit" color="primary">add </button>
+   
+
+        </form>
+    </div>
+</div>
+</div>
+</div>
