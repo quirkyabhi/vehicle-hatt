@@ -47,9 +47,14 @@ export class CustomerPaymentHistoryComponent implements OnInit {
        this.dataSource = new MatTableDataSource<Payment>(this.paidList)
        this.dataSource.sort = this.sort;
        this.dataSource.paginator = this.paginator;
+       this.dataSource.filterPredicate = (data: any, filter) => {
+        const dataStr =JSON.stringify(data).toLowerCase();
+        return dataStr.indexOf(filter) != -1; 
+      }
       // console.log(this.paidList)
     })
   }
+  
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
