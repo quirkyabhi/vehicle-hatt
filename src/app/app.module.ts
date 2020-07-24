@@ -49,6 +49,7 @@ import { UpdateVehicleComponent } from './admin-dashboard/update-vehicle/update-
 import {MatSortModule} from '@angular/material/sort';
 import { MyProfileComponent } from './customer-dashboard/my-profile/my-profile.component'
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 @NgModule({
   declarations: [
@@ -111,6 +112,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     MatSnackBarModule,
     MatSortModule,
     Ng2SearchPipeModule,
+    MatButtonToggleModule,
     
     
     // FormControl,
