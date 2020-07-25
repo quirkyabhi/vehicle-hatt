@@ -2,3 +2,128 @@
     background: rgba(0,0,0,.4);
     color: rgba(0,0,0,.87);
 }
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; }
+  
+  body {
+    font-family: "Muli-Regular";
+    color: #666;
+    font-size: 13px;
+    margin: 0; }
+  
+  input, textarea, select, button {
+    font-family: "Muli-Regular";
+    color: #333;
+    font-size: 13px; }
+  
+  p, h1, h2, h3, h4, h5, h6, ul {
+    margin: 0; }
+  
+  img {
+    max-width: 100%; }
+  
+  ul {
+    padding-left: 0;
+    margin-bottom: 0; }
+  
+  a:hover {
+    text-decoration: none; }
+  
+  :focus {
+    outline: none; }
+  
+//   .wrapper {
+//     min-height: 100vh;
+//     background-size: cover;
+//     background-repeat: no-repeat;
+//     display: flex;
+//     align-items: center; }
+  
+  .inner {
+    min-width: 850px;
+    margin: 0px;
+    padding-top: 0px;
+   
+    }
+    .inner h3 {
+      text-transform: uppercase;
+      font-size: 22px;
+      font-family: "Muli-Bold";
+      text-align: center;
+      margin-bottom: 32px;
+      color: #333;
+      letter-spacing: 2px; }
+  
+  form {
+    width: 90%;
+    padding-left: 45px; }
+  
+  .form-group {
+    display: flex; }
+    .form-group .form-wrapper {
+      width: 100%; }
+      .form-group .form-wrapper:first-child {
+        margin-right: 20px; }
+  
+  .form-wrapper {
+    margin-bottom: 17px; }
+    .form-wrapper label {
+      margin-bottom: 9px;
+      display: block; }
+  
+  .form-control {
+    border: 1px solid #ccc;
+    display: block;
+    width: 100%;
+    height: 40px;
+    padding: 0 20px;
+    border-radius: 20px;
+    font-family: "Muli-Bold";
+    background: none;
+    margin-bottom: 6px; }
+   
+  
+  button {
+    border: none;
+    width: 152px;
+    height: 40px;
+    margin: auto;
+    margin-top: 29px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    background: #343a40;
+    font-size: 13px;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: "Muli-SemiBold";
+    border-radius: 20px;
+    overflow: hidden;
+  position: relative; }
+   
+  
+  @media (max-width: 991px) {
+    .inner {
+      min-width: 768px; } }
+  @media (max-width: 767px) {
+    .inner {
+      min-width: auto;
+      background: none;
+      padding-top: 0;
+      padding-bottom: 0; }
+  
+    form {
+      width: 100%;
+      padding-right: 15px;
+      padding-left: 15px; } }
+      @media(min-width:1000px){
+          .form-center{
+              margin-left: 15%;
+                margin-top: 10%;
+          }
+      }

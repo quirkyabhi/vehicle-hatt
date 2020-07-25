@@ -1,43 +1,66 @@
-<div class=" container-sm">
-    <div class=" col-md-4 offset-4 mt-5"> 
-    
-    <form class=" form-container "  (ngSubmit)="addVehicle()" novalidate [formGroup]="addVehicleForm">
-        <mat-form-field class="form-width">
-            <input matInput placeholder="Vehicle name" type="text" required formControlName="vehicleName">
-        </mat-form-field>
-        <mat-form-field class="form-width">
-            <input matInput placeholder="Vehicle no." type="text" required formControlName="vehicleNo">
-        </mat-form-field>
-        <mat-form-field class="form-width">
-            <input matInput placeholder="Registration No" type="text" required formControlName="registrationNo">
-        </mat-form-field>
-        <mat-form-field class="form-width">
-            <input matInput placeholder="insurance no." type="text" required formControlName="insuranceNo">
-        </mat-form-field>
-           <mat-form-field>
-            <mat-label>Vehicle Type</mat-label>
-            <mat-select matNativeControl required formControlName="vehicleType">
-              <mat-option value="Moto">Moto</mat-option>
-              <mat-option value="Hatchback">Hatchback</mat-option>
-              <mat-option value="Sedan">Sedan</mat-option>
-              <mat-option value="SUV">SUV</mat-option>
-              <mat-option value="Minibus">Minibus</mat-option>
+<div class=" container-sm ">
+    <div class=" col-md-4 offset-4 mt-5 "> 
+        <div class="inner">
+         <form class=" form-container "  (ngSubmit)="addVehicle()" novalidate [formGroup]="addVehicleForm">
+            <h3>Add Vehicle</h3>
+            <div class="form-group row">
+                <div class="col-lg-6 col-sm-12">
+                    <label for="">Vehicle Name</label>
+                    <input class="form-control" placeholder="Vehicle name" type="text" required formControlName="vehicleName">
+                </div>
+                <div class="col-lg-6 col-sm-12">
+                    <label for="">Vehicle no.</label>
+                    <input class="form-control" placeholder="Vehicle no." type="text" required formControlName="vehicleNo">
+                </div>
+            </div>
 
-            </mat-select>
-        </mat-form-field>
-        <mat-form-field class="form-width">
-            <input matInput placeholder="Rent per day" type="number" required formControlName="rentPerDay">
-        </mat-form-field> 
-        <mat-form-field class="form-width">
-            <input matInput placeholder="Security Amount" type="number" required formControlName="securityAmount">
-        </mat-form-field> 
-        <mat-form-field class="form-width">
-            <input matInput placeholder="Fine per day" type="number" required formControlName="fine">
-        </mat-form-field> 
+
+        <div class="form-group row">
+            <div class="col-lg-6 col-sm-12">
+                <label for="">Registration No</label>
+                <input class="form-control" placeholder="Registration No" type="text" required formControlName="registrationNo">
+            </div>
+            <div class="col-lg-6 col-sm-12">
+                <label for="">insurance no.</label>
+                <input class="form-control" placeholder="insurance no." type="text" required formControlName="insuranceNo">
+            </div>
+        </div>
+
+
+        <div class="form-group row">
+            <div class="col-lg-6 col-sm-12">
+                <label>Vehicle Type</label>
+                <select class="form-control" required formControlName="vehicleType">
+                  <option value="Moto">Moto</option>
+                  <option value="Hatchback">Hatchback</option>
+                  <option value="Sedan">Sedan</option>
+                  <option value="SUV">SUV</option>
+                  <option value="Minibus">Minibus</option>
+                </select>
+            </div>
+            <div class="col-lg-6 col-sm-12">
+                <label for="">Rent per day</label>
+                <input class="form-control"  placeholder="Rent per day" type="number" required formControlName="rentPerDay">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-lg-6 col-sm-12">
+                <label for="">Security Amount</label>
+                <input class="form-control" placeholder="Security Amount" type="number" required formControlName="securityAmount">
+            </div>
+            <div class="col-lg-6 col-sm-12">
+                <label for="">Fine per day</label>
+                <input class="form-control" placeholder="Fine per day" type="number" required formControlName="fine">
+            </div>
+        </div>
+        
+
+ 
         <br>
         <div>
-            <button mat-raised-button type="submit" color="primary">add </button>
-            <button class="right" mat-raised-button type="reset" color="default">Cancel</button>
+            <button type="submit" color="primary">add </button>
+            <button class="right" type="reset" style="background-color: aliceblue; color:black;border:solid" color="default">Cancel</button>
         </div>
     </form>
+</div>
     </div></div>

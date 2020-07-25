@@ -1,8 +1,8 @@
-<div class=" container-sm" [hidden]="!display">
+<!-- <div class=" container-sm" [hidden]="!display">
     <div class=" col-md-4 offset-4 mt-5"> 
-    
+        <div class="inner">
     <form class=" form-container "  (ngSubmit)="continue()" novalidate [formGroup]="customerEmailForm">
-       
+        <h3>Rent Vehicle</h3>
           <br>
           <mat-form-field appearance="fill" >
             <mat-label>Customer :: Vehicle Issued</mat-label>
@@ -49,5 +49,74 @@
                 <button class="right" mat-raised-button type="reset" color="default">Cancel</button>
             </div>
         </form>
+        </div>
+        </div></div>
+     -->
+
+     <div class=" container " style="margin-left: 15%;" [hidden]="!display">
+        <div class=" col-md-4 offset-4 mt-5"> 
+            <div class="inner">
+        <form class=" form-container "  (ngSubmit)="continue()" novalidate [formGroup]="customerEmailForm">
+            <h3>Return Vehicle</h3>
+              <br>
+              <div class="row">
+                <div class=" col-lg-12 col-md-12 col-sm-12">
+                <label>Customer :: Vehicle Issued</label>
+                <select class="form-control"  formControlName="userEmail">
+                  <option *ngFor="let userEmail of issuedList" [value]="userEmail">
+                    {{userEmail.userEmail }} :: {{userEmail.vehicleName}}
+                  </option>
+                </select>
+            </div>
+            </div>
+              <br>
+                   <div>
+                <button  type="submit" color="primary"> Continue </button>
+                <button class="right" style="background-color: aliceblue; color:black;border:solid" type="reset" color="default">Cancel</button>
+            </div>
+        </form>
         </div></div>
     
+        <div class=" container-sm" [hidden]="!display">
+            <div class=" col-md-4 offset-4 mt-5"> 
+                <div class="inner">
+            <form class=" form-container "  (ngSubmit)="pay()" novalidate [formGroup]="returnVehicleForm">
+               
+                <mat-form-field >
+                    <mat-label>Return  Date</mat-label>
+                    <input disabled matInput  [matDatepicker]="picker" formControlName="createdDate">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+                <div class="row">
+                    <div class=" col-lg-12 col-md-12 col-sm-12">
+                       
+                        <mat-form-field>
+                            <input matInput placeholder="Security Amount" type="number" readonly [ngModelOptions]="{standalone: true}" [(ngModel)]="securityAmountBind">
+                        </mat-form-field>
+                    </div>
+                </div>
+               <div class="row">
+                <div class=" col-lg-12 col-md-12 col-sm-12">
+                    <label for="">Fine</label>
+                    <input class="form-control"  placeholder="Fine" type="number"  formControlName="fine">
+                </div>
+            </div>
+            <div class="row">
+                <div class=" col-lg-12 col-md-12 col-sm-12">
+                    <label for="">Total Rent with Fine</label>
+                    <input class="form-control" placeholder="Total Rent with Fine" type="number"  formControlName="totalRent">
+                </div>
+            </div>
+            
+   
+    
+    
+                <div>
+                    <button  type="submit" color="primary"> Pay </button>
+                    <button class="right" style="background-color: aliceblue; color:black;border:solid"  type="reset" color="default">Cancel</button>
+                </div>
+            </form>
+            </div>
+            </div></div>
+        </div>

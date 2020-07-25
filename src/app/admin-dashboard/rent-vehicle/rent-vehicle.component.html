@@ -1,9 +1,12 @@
-<div class=" container-sm" [hidden]="!display">
-    <div class=" col-md-4 offset-4 mt-5"> 
-    
+<div class=" container-sm " style="margin-top: 2%;margin-bottom:2%;margin-left: 2%" [hidden]="!display">
+    <div class="col-12 justify-content-center">
+    <div class="inner">
+  
+        
     <form class=" form-container "  (ngSubmit)="continue()" novalidate [formGroup]="rentVehicleForm">
-       
-        <mat-form-field appearance="fill" >
+        <h3>Rent Vehicle</h3>
+        <div class="inner-form" style="text-align: center;">
+        <mat-form-field appearance="fill" class="mat-form">
             <mat-label>Vehicle name</mat-label>
             <mat-select formControlName="vehicleName">
               <mat-option *ngFor="let vehicleName of vehicleList" [value]="vehicleName">
@@ -12,100 +15,139 @@
             </mat-select>
           </mat-form-field>
           <br>
-          <mat-form-field appearance="fill" >
+          <mat-form-field appearance="fill" class="mat-form">
             <mat-label>Customer Email</mat-label>
-            <mat-select formControlName="userEmail">
+            <mat-select  formControlName="userEmail">
               <mat-option *ngFor="let userEmail of customerList" [value]="userEmail">
                 {{userEmail.email}}
               </mat-option>
             </mat-select>
           </mat-form-field>
           <br>
-
+          <div class="form-group row">
+            <div class=" col-lg-6 col-md-6 col-sm-12">
         <mat-form-field >
             <mat-label>Issue Date</mat-label>
-            <input matInput [matDatepicker]="picker" formControlName="issueDate">
+            <input matInput class="form-control" class=" form-container " [matDatepicker]="picker" formControlName="issueDate">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
-
+</div></div>
+<div class="form-group row">
+<div class=" col-lg-6 col-md-6 col-sm-12">
         <mat-form-field >
             <mat-label>Return Date</mat-label>
-            <input matInput [matDatepicker]="picker1" formControlName="returnDate">
+            <input matInput class="form-control" class=" form-container " [matDatepicker]="picker1" formControlName="returnDate">
             <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
             <mat-datepicker #picker1></mat-datepicker>
         </mat-form-field>
+    </div>
+</div>
+        </div>
                <div>
-            <button mat-raised-button type="submit" color="primary"> Continue </button>
-            <button class="right" mat-raised-button type="reset" color="default">Cancel</button>
+            <button  type="submit" color="primary"> Continue </button>
+            <button class="right"  type="reset" style="background-color: aliceblue; color:black;border:solid" color="default">Cancel</button>
         </div>
     </form>
-    </div></div>
-
-    <div class=" container-sm" [hidden]="display">
-        <div class=" col-md-4 offset-4 mt-5"> 
+    </div>
+</div>
+    <div class=" container-sm justify-content-center" [hidden]="display">
+       
+        <div class=" col-lg-12  mt-5 d-flex justify-content-center"> 
         
         <form class=" form-container "  (ngSubmit)="rentVehicle()" novalidate [formGroup]="rentVehicleFormContinued">
+           
+            <div class="form-group row">
+                <div class="col-lg-6 col-sm-12">
+                    <label for="">Vehicle no.</label>
+                    <input class="form-control"   placeholder="Vehicle no." type="text" required formControlName="vehicleNo">
+                </div>
+                <div class="col-lg-6 col-sm-12">
+                    <label for="">Vehicle Name</label>
+                    <input class="form-control" placeholder="Vehicle Name" type="text" required formControlName="vehicleName">
+                </div>
+            </div>
+            <div class="row">
+                <div class=" col-lg-12 col-md-12 col-sm-12">
+                    <label for="">Email</label>
+                    <input class="form-control"  placeholder="Customer Email" type="text" required formControlName="userEmail">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-lg-6 col-sm-12">
+                    <label for="">Customer Name</label>
+                    <input class="form-control"   placeholder="Customer Name" type="text" required formControlName="userName">
+                </div>
+                <div class="col-lg-6 col-sm-12">
+                    <label for="">Customer Contact</label>
+                    <input class="form-control" placeholder="Customer Phone no" type="text" required formControlName="userPhone">
+                </div>
+            </div>
+  
+            <div class="form-group row">
+                <div class=" col-lg-6 col-md-6 col-sm-12">
+                <label for="">Vehicle Type</label>
+                <select  class="form-control" placeholder="Vehicle Type"  required formControlName="vehicleType">
+                    <option value="Moto">Moto</option>
+                    <option value="Hatchback">Hatchback</option>
+                    <option value="Sedan">Sedan</option>
+                    <option value="SUV">SUV</option>
+                    <option value="Minibus">Minibus</option>
+                  </select>
+            </div>
+            <div class="col-lg-6 col-sm-12">
+                <label for="">Security Amount</label>
+                <input class="form-control" placeholder="Security Amount" type="number" required formControlName="securityAmount">
+            </div>
+            </div>
 
-            <mat-form-field class="form-width">
-            <input matInput placeholder="Vehicle no." type="text" required formControlName="vehicleNo">
-        </mat-form-field>
-        <mat-form-field class="form-width">
-            <input matInput placeholder="Vehicle Name" type="text" required formControlName="vehicleName">
-        </mat-form-field>
-        <mat-form-field class="form-width">
-            <input matInput placeholder="Customer Email" type="text" required formControlName="userEmail">
-        </mat-form-field>
-        <mat-form-field class="form-width">
-            <input matInput placeholder="Customer Name" type="text" required formControlName="userName">
-        </mat-form-field>
-        <mat-form-field class="form-width">
-            <input matInput placeholder="Customer Phone no" type="text" required formControlName="userPhone">
-        </mat-form-field>
-           <mat-form-field>
-            <mat-label>Vehicle Type</mat-label>
-            <mat-select matNativeControl required formControlName="vehicleType">
-              <mat-option value="Moto">Moto</mat-option>
-              <mat-option value="Hatchback">Hatchback</mat-option>
-              <mat-option value="Sedan">Sedan</mat-option>
-              <mat-option value="SUV">SUV</mat-option>
-              <mat-option value="Minibus">Minibus</mat-option>
-            </mat-select>
-        </mat-form-field>
+            <div class="form-group row">
+                <div class="col-lg-6 col-sm-12">
         <mat-form-field >
             <mat-label>Issue Date</mat-label>
             <input matInput [matDatepicker]="picker2" formControlName="issueDate">
             <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
             <mat-datepicker #picker2></mat-datepicker>
         </mat-form-field>
-
+    </div>
+        <div class="col-lg-6 col-sm-12">
         <mat-form-field >
             <mat-label>Return Date</mat-label>
             <input matInput [matDatepicker]="picker3" formControlName="returnDate">
             <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
             <mat-datepicker #picker3></mat-datepicker>
         </mat-form-field>
-        <mat-form-field class="form-width">
-            <input matInput placeholder="Rent per day" type="number" required formControlName="rentPerDay">
-        </mat-form-field> 
-        <mat-form-field class="form-width">
-            <input matInput placeholder="Security Amount" type="number" required formControlName="securityAmount">
-        </mat-form-field> 
-        <mat-form-field class="form-width">
-            <input matInput placeholder="Fine per day" type="number" required formControlName="finePerDay">
-        </mat-form-field> 
-        <mat-form-field class="form-width">
-            <input matInput placeholder="Total Fine" type="number" required formControlName="totalFine">
-        </mat-form-field> 
-        <mat-form-field class="form-width">
-            <input matInput placeholder="Total Rent" type="number" required formControlName="totalRent">
-        </mat-form-field> 
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-lg-6 col-sm-12">
+            <label for="">Rent per day</label>
+            <input class="form-control"  placeholder="Rent per day" type="number" required formControlName="rentPerDay">
+        </div>
+        <div class="col-lg-6 col-sm-12">
+            <label for="">Fine per day</label>
+            <input class="form-control" placeholder="Fine per day" type="number" required formControlName="finePerDay">
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-lg-6 col-sm-12">
+            <label for="">Total Fine</label>
+            <input class="form-control"  placeholder="Total Fine" type="number" required formControlName="totalFine">
+        </div>
+        <div class="col-lg-6 col-sm-12">
+            <label for="">Total Rent</label>
+            <input class="form-control" placeholder="Total Rent" type="number" required formControlName="totalRent">
+        </div>
+    </div>
+    
+    
 
         <br>
             <div>
-                <button mat-raised-button type="submit" color="primary"> Rent </button>
-                <button class="right" mat-raised-button type="reset" color="default">Cancel</button>
+                <button  type="submit" color="primary"> Rent </button>
+                <button class="right"  type="reset" style="background-color: aliceblue; color:black;border:solid" color="default">Cancel</button>
             </div>
         </form>
         </div>
+    </div>
     </div>
