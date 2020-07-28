@@ -59,8 +59,8 @@ export class LoginComponent implements OnInit {
     this.signupForm= this.fb.group({
       fname : ['',Validators.required],
       lname : ['',Validators.required],
-      email : ['',Validators.required],
-      password : ['',Validators.required],
+      email : ['',Validators.required, Validators.email],
+      password : ['',Validators.required, Validators.minLength(6)],
       gender : ['',Validators.required],
       phone : ['',Validators.required],
       dlNo : ['',Validators.required],
@@ -71,8 +71,8 @@ export class LoginComponent implements OnInit {
   createLoginForm(){
     this.loginForm= this.fb.group({
       
-      email : ['',Validators.required],
-      password : ['',Validators.required],
+      email : ['',Validators.required, Validators.email],
+      password : ['',Validators.required, Validators.minLength(6)],
       
 
     })
